@@ -1,0 +1,13 @@
+class Animals:
+    def __init__(self, name, health, mood):
+        self.name = name
+        self.health = health
+        self.mood = mood
+
+
+    def show(self):
+        print(self.name + "has" + str(self.health) "points of health, and is now feeling" + self.mood)
+
+    def update(self):
+        pass
+
