@@ -2,6 +2,7 @@ import discord
 import asyncio
 import Maintenance
 import Play
+import Feed
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -36,7 +37,9 @@ async def on_message(message):
     user = message.author.id
     
     if not (message.author.bot):
-      return x
+
+      if contents.startswith("!test_feed"):
+         await Feed.feed(client, message)
 
 
 
