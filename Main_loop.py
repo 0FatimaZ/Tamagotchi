@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import Class
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -21,13 +22,13 @@ async def on_ready():
 
 
 #mainloop
-@client.event
+""" @client.event
 async def on_message(message):
     global run_game
     contents = message.content
     user = message.author.id
     
-    if not (message.author.bot):
+    if not (message.author.bot): """
 
 
 
