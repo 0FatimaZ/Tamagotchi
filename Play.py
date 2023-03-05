@@ -11,7 +11,7 @@ cup = [":bucket:", ":bucket:", ":bucket:", ":bucket:", ":mouse:"]
 Game = {"cup_game": 0}
 
 @client.event
-async def gank_lane(client, message):
+async def play(client, message):
     contents = message.content
     reply = "What game would you like to play? (You can currently only play one game)"
     game_message = await message.channel.send(reply)

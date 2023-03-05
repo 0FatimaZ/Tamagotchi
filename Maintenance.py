@@ -37,7 +37,7 @@ fridge = {
     "empty": False
 }
 """
-#spøg maya hvorfor jeg får AtributeError: 'bool' object has no attribute 'number' selv om koden tydeligvis virker. og bare generelt om brugen af classes i dictionaris fordi jeg er ret sikker på stats også er fucked.
+#spørg maya hvorfor jeg får AtributeError: 'bool' object has no attribute 'number' selv om koden tydeligvis virker. og bare generelt om brugen af classes i dictionaris fordi jeg er ret sikker på stats også er fucked.
 
 
 state = {
