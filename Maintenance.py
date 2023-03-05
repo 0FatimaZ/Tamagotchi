@@ -46,3 +46,30 @@ state = {
     "user": None
 }
 #Page nummer 0 er så home page, dog starter man med at købe et dyr i shop, derfor starter den på x. Husk at ændre det.
+
+
+#List
+
+helpMes = [
+    "This game allows you to take care of your pet by playing, feeding and cleaning it", 
+    
+    "THE CURRENCY",
+
+    "The currency in this game is called *buckaloue* which allows you to shop for items.",
+    "You can obtain buckaloues by caring for your pet",
+
+    "COMMANDS",
+
+    "The preifx is >",
+    "*>Help* for explaining the game. ",
+    "*>Play for playing mini games with your pet", 
+    "*>Feed for feeding your pet",
+    "*>Shower for cleaning your pet", 
+    ">Shop for shopping items for your pet",
+
+    "STATS",
+
+    "The stats are the 3 top bars that show you your pets *Hunger, Happiness and Cleanliness*",
+    "Keep an eye on your pets stats so that your pet doesn't get sick."
+
+]

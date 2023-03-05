@@ -4,6 +4,7 @@ import Maintenance
 import Play
 import Feed
 import Shower
+import Help
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -42,6 +43,9 @@ async def on_message(message):
          await Feed.feed(client, message)
       elif contents.startswith("s"):
          await Shower.shower(client, message)
+      elif contents.startwith(">Help"):
+         await Help.help(client, message)
+      
       
 
 
