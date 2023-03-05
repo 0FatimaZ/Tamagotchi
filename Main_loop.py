@@ -3,6 +3,7 @@ import asyncio
 import Maintenance
 import Play
 import Feed
+import Shower
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -39,6 +40,9 @@ async def on_message(message):
 
       if contents.startswith("f"):
          await Feed.feed(client, message)
+      elif contents.startswith("s"):
+         await Shower.shower(client, message)
+      
 
 
 
