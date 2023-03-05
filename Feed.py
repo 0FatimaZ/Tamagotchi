@@ -53,7 +53,7 @@ async def feed(client, message):
                #?     if Maintenance.pet.Health.hunger["stats"] < 3:
                #?         Maintenance.pet.update({"stats": Maintenance.pet.Health.hunger["stats"] + 1}) 
                 Maintenance.pet.update({"buckaloues": Maintenance.pet["buckaloues"] + 1}) 
-                await message.channel.send("You feed your pet!! and you got 1 buckaloue :3")
+                await message.channel.send("You fed your pet!! and you got 1 buckaloue :3")
 
 
             
