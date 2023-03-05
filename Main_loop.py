@@ -22,7 +22,6 @@ def get_token():
 async def on_ready():
     print("Connected!")
 
-
 @client.event
 async def on_member_join(member):
     global player
@@ -38,7 +37,7 @@ async def on_message(message):
     
     if not (message.author.bot):
 
-      if contents.startswith("!test_feed"):
+      if contents.startswith("f"):
          await Feed.feed(client, message)
 
 
