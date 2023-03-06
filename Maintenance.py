@@ -3,7 +3,7 @@
 class Health:
     def __init__(self, hungry, clean, happy):
         self.hungry = hungry
-        self.cleanliness = clean
+        self.clean = clean
         self.happy = happy
 
 
@@ -20,12 +20,6 @@ fridge = {
     "🍩": Food(0, 2),
     "🍙": Food(0, 4)
 }
-
-def fridge_empty():
-    total = 0
-    for food in fridge.values():
-        total += food.number
-    return total == 0
 
 state = {
     "current_page": 0,
