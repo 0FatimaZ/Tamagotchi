@@ -47,16 +47,16 @@ helpMes = [
     "COMMANDS",
 
     "The preifx is >",
-    "*>Help* for explaining the game. ",
-    "*>Play for playing mini games with your pet", 
-    "*>Feed for feeding your pet",
-    "*>Shower for cleaning your pet", 
-    ">Shop for shopping items for your pet",
+    "*>help* for explaining the game. ",
+    "*>play* for playing mini games with your pet", 
+    "*>feed* for feeding your pet",
+    "*>shower* for cleaning your pet", 
+    ">shop* for shopping items for your pet",
 
     "REACTIONS",
 
     "You will be able to react on a message using emojis.",
-    "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)"
+    "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)",
 
     "STATS",
 

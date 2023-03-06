@@ -1,5 +1,6 @@
 import discord
 import Maintenance
+import asyncio
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -9,9 +10,11 @@ client = discord.Client(intents=intents)
 async def help(client, message):
     contents = message.content
     reply = "Here's a guide for the game:"
-    shower_message = await message.channel.send(reply)
+    await message.channel.send(reply)
     
-    if contents.startswith("!help"):
+    if contents.startswith(">help"):
             reply = Maintenance.helpMes
             for n in reply:
                 await message.channel.send(n)
+                await asyncio.sleep(3)
+               
