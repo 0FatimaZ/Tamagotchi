@@ -3,7 +3,7 @@
 class Health:
     def __init__(self, hungry, clean, happy):
         self.hungry = hungry
-        self.cleanliness = clean
+        self.clean = clean
         self.happy = happy
 
 
@@ -20,12 +20,6 @@ fridge = {
     "🍩": Food(0, 2),
     "🍙": Food(0, 4)
 }
-
-def fridge_empty():
-    total = 0
-    for food in fridge.values():
-        total += food.number
-    return total == 0
 
 state = {
     "current_page": 0,
@@ -47,16 +41,16 @@ helpMes = [
     "COMMANDS",
 
     "The preifx is >",
-    "*>Help* for explaining the game. ",
-    "*>Play for playing mini games with your pet", 
-    "*>Feed for feeding your pet",
-    "*>Shower for cleaning your pet", 
-    ">Shop for shopping items for your pet",
+    "*>help* for explaining the game. ",
+    "*>play* for playing mini games with your pet", 
+    "*>feed* for feeding your pet",
+    "*>shower* for cleaning your pet", 
+    ">shop* for shopping items for your pet",
 
     "REACTIONS",
 
     "You will be able to react on a message using emojis.",
-    "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)"
+    "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)",
 
     "STATS",
 
