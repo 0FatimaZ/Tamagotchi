@@ -41,7 +41,7 @@ state = {
     "stage": 0,
     "current_page": 0,
     "user": None,
-    "health" : Health()
+    "health" : Health(0, 0, 0)
 }
 #Page nummer 0 er så home page, dog starter man med at købe et dyr i shop, derfor starter den på x. Husk at ændre det.
 
