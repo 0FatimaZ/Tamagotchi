@@ -1,7 +1,6 @@
 import discord
 import asyncio
 import Maintenance 
-from Maintenance import Food
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -47,9 +46,9 @@ async def feed(client, message):
         if reaction is not None:
 
             if str(reaction.emoji) in list(Maintenance.fridge.keys()):
-                Maintenance.fridge.update({str(reaction.emoji): Maintenance.fridge.Food.number[str(reaction.emoji)] - 1})   
+                Maintenance.fridge.update({str(reaction.emoji): Maintenance.fridge[str(reaction.emoji)].number - 1})   
                 await message.channel.send("You fed your pet!!")
-                Maintenance.state.update({"stats": Maintenance.state.Health.hunger["stats"] - 1}) 
+                Maintenance.state.update({"stats": Maintenance.state["stats"].hunger + 1}) 
                 await message.channel.send("You restored 1 health")
                 await message.channel.send(Maintenance.state["stats"])
 

@@ -1,10 +1,10 @@
 #Classes
 
 class Health:
-    def __init__(self, hunger = 0, cleanliness = 0, happiness = 0):
-        self.health = hunger
-        self.cleanliness = cleanliness
-        self.happiness = happiness
+    def __init__(self, hungry, clean, happy):
+        self.hungry = hungry
+        self.cleanliness = clean
+        self.happy = happy
 
 
 class Food:
