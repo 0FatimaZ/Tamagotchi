@@ -67,6 +67,11 @@ helpMes = [
     "*>Shower for cleaning your pet", 
     ">Shop for shopping items for your pet",
 
+    "REACTIONS",
+
+    "You will be able to react on a message using emojis.",
+    "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)"
+
     "STATS",
 
     "The stats are the 3 top bars that show you your pets *Hunger, Happiness and Cleanliness*",
