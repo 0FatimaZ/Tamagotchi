@@ -26,11 +26,11 @@ async def shower(client, message):
     else:
         if str(reaction.emoji) == '🚿':
             if Maintenance.state["stats"].cleanliness < 3:
-                reply = "Let's clean Cato" + '⌛'
+                reply = "Let's clean Cato" + '⏳'
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File("Cleancat.png"))
                 await asyncio.sleep(5) 
-                reply = "Cato is now clean, you recieved 1 buckaloue! :3"
+                reply = "Cato is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1}) 
                 Maintenance.state["stats"].cleanliness +=1
