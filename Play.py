@@ -28,14 +28,12 @@ async def play(client, message):
         except discord.errors.NotFound:
             pass
         reaction = None
-
-    if reaction is not None:
-        if str(reaction.emoji) == ':bucket:'and  Game["cup_game"] == 0:
-            reply = "Let's play the cup game."
-            await message.channel.send(reply)
-            Game.update({"cup_game": 1})
-
-            if Game["cup_game"] == 1:
+    
+    else:
+        if reaction is not None:
+            if str(reaction.emoji) == '🪣' and  Game["cup_game"] == 0:
+                reply = "Let's play the cup game."
+                await message.channel.send(reply)
                 random.shuffle(cup)
                 msg1 = await message.channel.send(":bucket::bucket::bucket::bucket::bucket:")
                 await asyncio.sleep(3)
@@ -45,26 +43,19 @@ async def play(client, message):
                 await msg2.delete()
                 msg1 = await message.channel.send(":bucket::bucket::bucket::bucket::bucket:")
                 await message.channel.send("Where is the mouse?")
-                Game.update({"cup_game": 2})
-            
-            elif Game["cup_game"] == 2:
+
                 if contents.startswith("1"):
                     if cup[0]==":mouse:":
                         await message.channel.send("You found the mouse!")
-                        Game.update({"cup_game": 0})
                 elif contents.startswith("2"):
                     if cup[1]==":mouse:":
                         await message.channel.send("You found the mouse!")
-                        Game.update({"cup_game": 0})
                 elif contents.startswith("3"):
                     if cup[2]==":mouse:":
                         await message.channel.send("You found the mouse!")
-                        Game.update({"cup_game": 0})
                 elif contents.startswith("4"):
                     if cup[3]==":mouse:":
                         await message.channel.send("You found the mouse!")
-                        Game.update({"cup_game": 0})
                 elif contents.startswith("5"):
                     if cup[4]==":mouse:":
                         await message.channel.send("You found the mouse!")
-                        Game.update({"cup_game": 0})
