@@ -27,7 +27,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     global player
-    player = Maintenance.Stats()
+    player = Maintenance.Health()
 
 
 #mainloop
@@ -44,7 +44,26 @@ async def on_message(message):
       elif contents.startswith("shower"):
          await Shower.shower(client, message)
       elif contents.startswith("g"):
-        await Play.play(client, message)
+        if Play.Game["cup_game"] == 0:
+          await Play.play(client, message)
+        elif Play.Game["cup_game"] == 1:
+          if contents.startswith("!1"):
+              if Play.cup[0] =="🐭":
+                  await message.channel.send("You found the mouse!")
+          elif contents.startswith("!2"):
+              if Play.cup[1] == "🐭":
+                  await message.channel.send("You found the mouse!")
+          elif contents.startswith("!3"):
+              if Play.cup[2] == "🐭":
+                  await message.channel.send("You found the mouse!")
+          elif contents.startswith("!4"):
+              if Play.cup[3] == "🐭":
+                  await message.channel.send("You found the mouse!")
+          elif contents.startswith("!5"):
+              if Play.cup[4] == "🐭":
+                  await message.channel.send("You found the mouse!")
+        else:
+            await message.channel.send("Where is the mouse?!")
       elif contents.startswith(">Help"):
          await Help.help(client, message)
       
