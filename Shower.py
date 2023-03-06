@@ -25,7 +25,7 @@ async def shower(client, message):
     
     else:
         if str(reaction.emoji) == '🚿':
-            if Maintenance.state["health"].cleanliness < 3:
+            if Maintenance.state["stats"].cleanliness < 3:
                 reply = "Let's clean Cato."
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File("CleanCat_1.png"))
@@ -33,6 +33,6 @@ async def shower(client, message):
                 reply = "Cato is now clean, you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 Maintenance.pet.update({"buckaloues": Maintenance.pet["buckaloues"] + 1}) 
-                Maintenance.Health.cleanliness +=1
+                Maintenance.state["stats"].cleanliness +=1
 
 # Hvordan ved spilleren hvor mange buckaloues de har? En speerat commando eller messages der bliver sendt efter hver aktivitet?
