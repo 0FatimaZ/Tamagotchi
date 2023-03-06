@@ -39,13 +39,13 @@ async def on_message(message):
     
     if not (message.author.bot):
 
-      if contents.startswith("f"):
+      if contents.startswith("feed"):
          await Feed.feed(client, message)
-      elif contents.startswith("s"):
+      elif contents.startswith("shower"):
          await Shower.shower(client, message)
-      elif contents.startswith("p"):
+      elif contents.startswith("g"):
         await Play.play(client, message)
-      elif contents.startwith(">Help"):
+      elif contents.startswith(">Help"):
          await Help.help(client, message)
       
       
