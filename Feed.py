@@ -1,7 +1,6 @@
 import discord
 import asyncio
 import Maintenance 
-from Maintenance import Food
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -12,21 +11,21 @@ async def feed(client, message):
     contents = message.content
 
     await message.channel.send(file=discord.File("fridge_placeholder.jpg"))
-    if Maintenance.fridge["empty"] == True:
+    if Maintenance.fridge_empty() == True:
         await message.channel.send("Your fridge is empty :(")
         await message.channel.send("Go to the *>shop* to by more food.")
     else:
         await message.channel.send("Things in your fridge: ")
         for (name, Food) in Maintenance.fridge.items():
-            if Food > 0:
-                reply = str(name) + ": " + str(Food)
+            if Food.number > 0:
+                reply = str(name) + ": " + str(Food.number)
                 await message.channel.send(reply)
         
 
         reply = f"What would you like to feed your pet?"
         feed_message = await message.channel.send(reply)
         for (name, Food) in Maintenance.fridge.items():
-            if Food > 0:
+            if Food.number > 0:
                 await feed_message.add_reaction(name)
         
         def check(reaction, user):
@@ -47,14 +46,12 @@ async def feed(client, message):
         if reaction is not None:
 
             if str(reaction.emoji) in list(Maintenance.fridge.keys()):
-                Maintenance.fridge.update({str(reaction.emoji): Maintenance.fridge[str(reaction.emoji)] - 1}) 
-                if all(Food == 0 for Food in Maintenance.fridge.values()):
-                    Maintenance.fridge.update({"empty": True})
-               #? else:
-               #?     if Maintenance.pet.Health.hunger["stats"] < 3:
-               #?         Maintenance.pet.update({"stats": Maintenance.pet.Health.hunger["stats"] + 1}) 
-                Maintenance.pet.update({"buckaloues": Maintenance.pet["buckaloues"] + 1}) 
-                await message.channel.send("You fed your pet!! and you got 1 buckaloue :3")
+                Maintenance.fridge.update({str(reaction.emoji): Maintenance.fridge[str(reaction.emoji)].number - 1})   
+                await message.channel.send("You fed your pet!!")
+                Maintenance.state.update({"stats": Maintenance.state["stats"].hunger + 1}) 
+                await message.channel.send("You restored 1 health")
+                await message.channel.send(Maintenance.state["stats"])
+
 
 
             

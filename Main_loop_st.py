@@ -12,7 +12,7 @@ intents.reactions = True
 intents.members = True
 
 client = discord.Client(intents=intents)
-TOK_FILE = "token.txt"
+TOK_FILE = "token_st.txt"
 
 def get_token():
   tokfile = open(TOK_FILE, 'r')
