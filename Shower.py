@@ -11,10 +11,9 @@ async def shower(client, message):
     contents = message.content
     reply = "Would you like to give Cato a shower?" + "if yes react with" + ': ' + ':shower:'
     shower_message = await message.channel.send(reply)
-    await shower_message.add_reaction(':shower:') #400 bad request (error code: 50035): Invalid Form Body in emoji_id: value "" is not snowflake.
-
+    await shower_message.add_reaction('🚿')  
     def check(reaction, user):
-        return user == message.author and str(reaction.emoji) in [':shower:']
+        return user == message.author and str(reaction.emoji) in ['🚿']
     try:
         reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)
         
@@ -25,13 +24,13 @@ async def shower(client, message):
             pass
     
     else:
-        if str(reaction.emoji) == ':shower:':
-            if Maintenance.Health.cleanliness < 3:
+        if str(reaction.emoji) == '🚿':
+            if Maintenance.state["health"].cleanliness < 3:
                 reply = "Let's clean Cato."
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File("CleanCat_1.png"))
-                await asyncio.sleep(3) 
-                reply = "Cato is now clean, you recieved 1 buckaloue!"
+                await asyncio.sleep(5) 
+                reply = "Cato is now clean, you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 Maintenance.pet.update({"buckaloues": Maintenance.pet["buckaloues"] + 1}) 
                 Maintenance.Health.cleanliness +=1

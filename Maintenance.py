@@ -1,7 +1,7 @@
 #Classes
 
 class Health:
-    def __init__(self, hunger, cleanliness, happiness):
+    def __init__(self, hunger = 0, cleanliness = 0, happiness = 0):
         self.health = hunger
         self.cleanliness = cleanliness
         self.happiness = happiness
@@ -11,14 +11,11 @@ class Food:
     def __init__(self, number, price):
         self.number = number
         self.price = price
-        
-
 
 #Dictionaries
 
-pet = {
+money = {
     "buckaloues": 10,
-    "stats": Health(2, 3, 2)
 }
 
 fridge = {
@@ -43,7 +40,8 @@ fridge = {
 state = {
     "stage": 0,
     "current_page": 0,
-    "user": None
+    "user": None,
+    "health" : Health()
 }
 #Page nummer 0 er så home page, dog starter man med at købe et dyr i shop, derfor starter den på x. Husk at ændre det.
 
