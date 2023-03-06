@@ -13,7 +13,7 @@ Game = {"cup_game": 0}
 @client.event
 async def play(client, message):
     contents = message.content
-    reply = "What game would you like to play? (You can currently only play one game)"
+    reply = f"What game would you like to play? (You can currently only play one game)"
     game_message = await message.channel.send(reply)
     await game_message.add_reaction(':bucket:')
 
@@ -27,8 +27,9 @@ async def play(client, message):
             await game_message.delete()
         except discord.errors.NotFound:
             pass
-    
-    else:
+        reaction = None
+
+    if reaction is not None:
         if str(reaction.emoji) == ':bucket:'and  Game["cup_game"] == 0:
             reply = "Let's play the cup game."
             await message.channel.send(reply)

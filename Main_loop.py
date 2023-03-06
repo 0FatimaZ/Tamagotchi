@@ -43,7 +43,7 @@ async def on_message(message):
          await Feed.feed(client, message)
       elif contents.startswith("s"):
          await Shower.shower(client, message)
-      elif contents.startswith("!play"):
+      elif contents.startswith("p"):
         await Play.play(client, message)
       elif contents.startwith(">Help"):
          await Help.help(client, message)
