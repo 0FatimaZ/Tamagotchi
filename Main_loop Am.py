@@ -5,6 +5,8 @@ import Play
 import Feed
 import Shower
 import Help
+from Play import cup
+from Play import Game
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -38,34 +40,30 @@ async def on_message(message):
     user = message.author.id
     
     if not (message.author.bot):
-
-      if contents.startswith("feed"):
-         await Feed.feed(client, message)
-      elif contents.startswith("shower"):
-         await Shower.shower(client, message)
-      elif contents.startswith("g"):
-        if Play.Game["cup_game"] == 0:
-          await Play.play(client, message)
-        elif Play.Game["cup_game"] == 1:
-          if contents.startswith("!1"):
-              if Play.cup[0] =="🐭":
-                  await message.channel.send("You found the mouse!")
-          elif contents.startswith("!2"):
-              if Play.cup[1] == "🐭":
-                  await message.channel.send("You found the mouse!")
-          elif contents.startswith("!3"):
-              if Play.cup[2] == "🐭":
-                  await message.channel.send("You found the mouse!")
-          elif contents.startswith("!4"):
-              if Play.cup[3] == "🐭":
-                  await message.channel.send("You found the mouse!")
-          elif contents.startswith("!5"):
-              if Play.cup[4] == "🐭":
-                  await message.channel.send("You found the mouse!")
-        else:
-            await message.channel.send("Where is the mouse?!")
-      elif contents.startswith(">Help"):
-         await Help.help(client, message)
+        
+        if contents.startswith("feed"):
+            await Feed.feed(client, message)
+        elif contents.startswith("shower"):
+            await Shower.shower(client, message)
+        elif contents.startswith("g") and Game["cup_game"] == 0:
+            await Play.play(client, message)
+        elif Game["cup_game"] == 1 and contents.startswith("!1"):
+            if cup[0] =="🐭":
+                await message.channel.send("You found the mouse!")
+        elif Game["cup_game"] == 1 and contents.startswith("!2"):
+            if cup[1] == "🐭":
+                await message.channel.send("You found the mouse!")
+        elif Game["cup_game"] == 1 and contents.startswith("!3"):
+            if cup[2] == "🐭":
+                await message.channel.send("You found the mouse!")
+        elif Game["cup_game"] == 1 and contents.startswith("!4"):
+            if cup[3] == "🐭":
+                await message.channel.send("You found the mouse!")
+        elif Game["cup_game"] == 1 and contents.startswith("!5"):
+            if cup[4] == "🐭":
+                await message.channel.send("You found the mouse!")
+        elif contents.startswith(">Help"):
+            await Help.help(client, message)
       
       
 

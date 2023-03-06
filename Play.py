@@ -45,7 +45,7 @@ async def play(client, message):
                 Game.update({"cup_game": 1})
                 print(Game["cup_game"])
 
-@client.event
+""" @client.event
 async def play(client, message):
     contents = message.content
     reply = f"Where is the mouse?"
@@ -68,4 +68,4 @@ async def play(client, message):
             if cup[4] == "🐭":
                 await message.channel.send("You found the mouse!")
         else:
-            await message.channel.send("Where is the mouse?!")
+            await message.channel.send("Where is the mouse?!") """
