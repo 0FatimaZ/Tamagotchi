@@ -15,10 +15,10 @@ async def play(client, message):
     contents = message.content
     reply = f"What game would you like to play? (You can currently only play one game)"
     game_message = await message.channel.send(reply)
-    await game_message.add_reaction(':bucket:')
+    await game_message.add_reaction('🪣')
 
     def check(reaction, user):
-        return user == message.author and str(reaction.emoji) in [':bucket:']
+        return user == message.author and str(reaction.emoji) in ['🪣']
     try:
         reaction, user = await client.wait_for('reaction_add', timeout = 10.0, check = check)
         
