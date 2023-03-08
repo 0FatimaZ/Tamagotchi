@@ -2,6 +2,8 @@ import discord
 import asyncio
 import Maintenance
 
+
+
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
@@ -25,7 +27,7 @@ async def shower(client, message):
     
     else:
         if str(reaction.emoji) == '🚿':
-            if Maintenance.state["stats"].cleanliness < 3:
+            if Maintenance.state["stats"].clean < 3:
                 reply = "Let's clean Cato" + '⏳'
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File("Cleancat.png"))
@@ -33,7 +35,9 @@ async def shower(client, message):
                 reply = "Cato is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1}) 
-                Maintenance.state["stats"].cleanliness +=1
-                print(Maintenance.state["stats"].cleanliness)
+                Maintenance.state["stats"].clean +=1
+                print(Maintenance.state["stats"].clean)
                 print(Maintenance.state["buckaloues"])
+                
+
 
