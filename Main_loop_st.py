@@ -5,6 +5,7 @@ import Play
 import Feed
 import Shower
 import Help
+import Shop
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -45,6 +46,8 @@ async def on_message(message):
          await Shower.shower(client, message)
       elif contents.startswith("p"):
         await Play.play(client, message)
+      elif contents.startswith("h"):
+         await Shop.shop(client, message)
       elif contents.startswith(">Help"):
          await Help.help(client, message)
       
