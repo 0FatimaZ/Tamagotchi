@@ -16,11 +16,13 @@ def fridge_empty():
 async def feed(client, message):
     contents = message.content
 
-    await message.channel.send(file=discord.File("fridge_placeholder.jpg"))
+
     if fridge_empty() == True:
+        await message.channel.send(file=discord.File("fridge_empty.PNG"))
         await message.channel.send("Your fridge is empty :(")
         await message.channel.send("Go to the *>shop* to by more food.")
     elif fridge_empty() == False:
+        await message.channel.send(file=discord.File("fridge_full.PNG"))
         await message.channel.send("Things in your fridge: ")
         for (name, food) in Maintenance.fridge.items():
             if food.number > 0:
@@ -28,7 +30,7 @@ async def feed(client, message):
                 await message.channel.send(reply)
         
 
-        reply = f"What would you like to feed your pet?"
+        reply = "What would you like to feed your pet?"
         feed_message = await message.channel.send(reply)
         for (name, food) in Maintenance.fridge.items():
             if food.number > 0:

@@ -18,7 +18,7 @@ async def shop(client, message):
         await message.channel.send(reply)
 
         await message.channel.send("What would you like to buy?")
-        shop_message = await message.channel.send(file=discord.File("shop_placeholder.jpg"))
+        shop_message = await message.channel.send(file=discord.File("shop.PNG"))
         await shop_message.add_reaction("🍕")
         await shop_message.add_reaction("🍓")
         await shop_message.add_reaction("🍩")
@@ -40,8 +40,11 @@ async def shop(client, message):
         
         
         if reaction is not None:
-            if str(reaction.emoji) in list(Maintenance.fridge.keys()) and Maintenance.state["buckaloues"] >= Maintenance.fridge[str(reaction.emoji)].price:
+            price = Maintenance.fridge[str(reaction.emoji)].price
+            if str(reaction.emoji) in list(Maintenance.fridge.keys()) and Maintenance.state["buckaloues"] >= price:
                 Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] - Maintenance.fridge[str(reaction.emoji)].price})
+                new_number = Maintenance.fridge[str(reaction.emoji)].number + 1
+                Maintenance.fridge.update({str(reaction.emoji): Maintenance.Food(new_number, Maintenance.fridge[str(reaction.emoji)].price)})
                 await message.channel.send("You bought a " + str(reaction.emoji) + "!")
             else:
                 await message.channel.send("You don't have enough buckaloues to buy this item :'(")
