@@ -44,28 +44,55 @@ async def play(client, message):
                 msg1 = await message.channel.send("🪣🪣🪣🪣🪣")
                 Game.update({"cup_game": 1})
                 print(Game["cup_game"])
+                reply = f"Where is the mouse?"
+                game_message = await message.channel.send(reply)
 
-""" @client.event
-async def play(client, message):
+
+@client.event
+async def play_2(message):
     contents = message.content
-    reply = f"Where is the mouse?"
-    game_message = await message.channel.send(reply)
 
-    if Game["cup_game"] == 1:
+    if cup[0] =="🐭":
         if contents.startswith("!1"):
-            if cup[0] =="🐭":
-                await message.channel.send("You found the mouse!")
-        elif contents.startswith("!2"):
-            if cup[1] == "🐭":
-                await message.channel.send("You found the mouse!")
-        elif contents.startswith("!3"):
-            if cup[2] == "🐭":
-                await message.channel.send("You found the mouse!")
-        elif contents.startswith("!4"):
-            if cup[3] == "🐭":
-                await message.channel.send("You found the mouse!")
-        elif contents.startswith("!5"):
-            if cup[4] == "🐭":
-                await message.channel.send("You found the mouse!")
+            await message.channel.send("You found the mouse!")
+        elif contents.startswith("!2" or "!3" or "!4" or "!5"):
+                await message.channel.send("Uuuuuh. Better luck next time!")
         else:
-            await message.channel.send("Where is the mouse?!") """
+            await message.channel.send("What? What does that even mean?")
+        Game.update({"cup_game": 0})
+
+    elif cup[1] == "🐭":
+        if contents.startswith("!2"):
+            await message.channel.send("You found the mouse!")
+        elif contents.startswith("!1" or "!3" or "!4" or "!5"):
+                await message.channel.send("Uuuuuh. Better luck next time!")
+        else:
+            await message.channel.send("What? What does that even mean?")
+        Game.update({"cup_game": 0})
+
+    elif cup[2] == "🐭":
+        if contents.startswith("!3"):
+            await message.channel.send("You found the mouse!")
+        elif contents.startswith("!2" or "!1" or "!4" or "!5"):
+                await message.channel.send("Uuuuuh. Better luck next time!")
+        else:
+            await message.channel.send("What? What does that even mean?")
+        Game.update({"cup_game": 0})
+
+    elif cup[3] == "🐭":
+        if contents.startswith("!4"):
+            await message.channel.send("You found the mouse!")
+        elif contents.startswith("!2" or "!3" or "!1" or "!5"):
+                await message.channel.send("Uuuuuh. Better luck next time!")
+        else:
+            await message.channel.send("What? What does that even mean?")
+        Game.update({"cup_game": 0})
+
+    elif cup[4] == "🐭":
+        if contents.startswith("!5"):
+            await message.channel.send("You found the mouse!")
+        elif contents.startswith("!2" or "!3" or "!4" or "!1"):
+                await message.channel.send("Uuuuuh. Better luck next time!")
+        else:
+            await message.channel.send("What? What does that even mean?")
+        Game.update({"cup_game": 0})
