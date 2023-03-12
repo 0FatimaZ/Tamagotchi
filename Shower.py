@@ -35,7 +35,7 @@ async def shower(client, message):
                 reply = "Cato is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1}) 
-                Maintenance.state["stats"].clean +=1
+                Maintenance.state["stats"].clean = 3
                 print(Maintenance.state["stats"].clean)
                 print(Maintenance.state["buckaloues"])
                 

@@ -47,6 +47,8 @@ async def on_message(message):
             await Shower.shower(client, message)
         
         elif contents.startswith("g") and Game["cup_game"] == 0:
+            """ img_file = open('Images/MoodLow.png')
+            await message.channel.send(img_file) """
             await Play.play(client, message)
         
         elif Game["cup_game"] == 1:
