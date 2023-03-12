@@ -4,7 +4,6 @@ import Maintenance
 import Play
 import Feed
 import Shower
-import Help
 import Shop
 
 intents = discord.Intents.default()
@@ -49,7 +48,7 @@ async def on_message(message):
       elif contents.startswith("h"):
          await Shop.shop(client, message)
       elif contents.startswith(">Help"):
-         await Help.help(client, message)
+         pass
       
       
 

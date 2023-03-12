@@ -4,6 +4,7 @@ import Maintenance
 import Play
 import Feed
 import Shower
+import Wallet
 
 
 intents = discord.Intents.default()
@@ -52,8 +53,7 @@ async def on_message(message):
                 await message.channel.send(n)
                 await asyncio.sleep(3)
       elif contents.startswith(">wallet"):
-         reply = ("You've got" + Maintenance.state["buckaloues"] + "buckaloues!")
-         await message.channel.send(reply)
+        await Wallet.wallet(client, message)
 
       
       
