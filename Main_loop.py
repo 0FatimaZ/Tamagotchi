@@ -4,7 +4,7 @@ import Maintenance
 import Play
 import Feed
 import Shower
-import Help
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -40,14 +40,20 @@ async def on_message(message):
     if not (message.author.bot):
 
       
-      if contents.startswith("f"):
+      if contents.startswith(">feed"):
          await Feed.feed(client, message)
       elif contents.startswith(">shower"):
          await Shower.shower(client, message)
-      elif contents.startswith("p"):
+      elif contents.startswith(">play"):
         await Play.play(client, message)
       elif contents.startswith(">help"):
-         await Help.help(client, message)
+            reply = Maintenance.helpMes
+            for n in reply:
+                await message.channel.send(n)
+                await asyncio.sleep(3)
+      elif contents.startswith(">bucks"):
+         reply = ("You've got" + Maintenance.state["buckaloues"] + "buckaloues!")
+         await message.channel.send(reply)
 
       
       
