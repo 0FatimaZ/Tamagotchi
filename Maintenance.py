@@ -22,7 +22,7 @@ fridge = {
 }
 
 state = {
-    "current_page": 0,
+    "stage": 0,
     "user": None,
     "stats": Health(0, 0, 0),
     "buckaloues": 10

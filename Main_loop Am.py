@@ -6,6 +6,7 @@ import Feed
 import Shower
 import Help
 from Play import Game
+import Start
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -39,23 +40,32 @@ async def on_message(message):
     user = message.author.id
     
     if not (message.author.bot):
+
+        if Maintenance.state["stage"] == 0 and contents.startswith("pet"):
+            await Start.menu(message)
+            Maintenance.state["stage"] += 1
         
-        if contents.startswith("feed"):
-            await Feed.feed(client, message)
+        elif Maintenance.state["stage"] == 1:
         
-        elif contents.startswith("shower"):
-            await Shower.shower(client, message)
-        
-        elif contents.startswith("g") and Game["cup_game"] == 0:
-            """ img_file = open('Images/MoodLow.png')
-            await message.channel.send(img_file) """
-            await Play.play(client, message)
-        
-        elif Game["cup_game"] == 1:
-            await Play.play_2(message)
-        
-        elif contents.startswith(">Help"):
-            await Help.help(client, message)
+            if contents.startswith("feed"):
+                await Feed.feed(client, message)
+            
+            elif contents.startswith("shower"):
+                await Shower.shower(client, message)
+            
+            elif contents.startswith("g") and Game["cup_game"] == 0:
+                """ img_file = open('Images/MoodLow.png')
+                await message.channel.send(img_file) """
+                await Play.play(client, message)
+            
+            elif Game["cup_game"] == 1:
+                await Play.play_2(message)
+            
+            elif contents.startswith(">Help"):
+                await Help.help(client, message)
+            
+            elif contents.startswith(">menu"):
+                await Start.menu(message)
       
       
 

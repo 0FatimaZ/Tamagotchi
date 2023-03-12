@@ -8,5 +8,8 @@ client = discord.Client(intents=intents)
 
 
 @client.event
-async def shop(client, message):
+async def menu(message):
     contents = message.content
+
+    if Maintenance.state["stats"].happy == 0:
+        await message.channel.send(file=discord.File("CatHappy.png"))

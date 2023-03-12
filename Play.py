@@ -45,7 +45,6 @@ async def play(client, message):
                 await msg2.delete()
                 msg1 = await message.channel.send("🪣🪣🪣🪣🪣")
                 Game.update({"cup_game": 1})
-                print(Game["cup_game"])
                 reply = f"Where is the mouse?"
                 game_message = await message.channel.send(reply)
 
@@ -58,6 +57,7 @@ async def play_2(message):
         if contents.startswith("!1"):
             await message.channel.send("You found the mouse!")
             Maintenance.state["stats"].happy += 1
+            print(Maintenance.state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -68,6 +68,7 @@ async def play_2(message):
         if contents.startswith("!2"):
             await message.channel.send("You found the mouse!")
             Maintenance.state["stats"].happy += 1
+            print(Maintenance.state["stats"].happy)
         elif contents.startswith("!1" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -78,6 +79,7 @@ async def play_2(message):
         if contents.startswith("!3"):
             await message.channel.send("You found the mouse!")
             Maintenance.state["stats"].happy += 1
+            print(Maintenance.state["stats"].happy)
         elif contents.startswith("!2" or "!1" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -88,6 +90,7 @@ async def play_2(message):
         if contents.startswith("!4"):
             await message.channel.send("You found the mouse!")
             Maintenance.state["stats"].happy += 1
+            print(Maintenance.state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!1" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -98,6 +101,7 @@ async def play_2(message):
         if contents.startswith("!5"):
             await message.channel.send("You found the mouse!")
             Maintenance.state["stats"].happy += 1
+            print(Maintenance.state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!4" or "!1"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
