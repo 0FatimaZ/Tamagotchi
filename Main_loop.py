@@ -51,7 +51,7 @@ async def on_message(message):
             for n in reply:
                 await message.channel.send(n)
                 await asyncio.sleep(3)
-      elif contents.startswith(">bucks"):
+      elif contents.startswith(">wallet"):
          reply = ("You've got" + Maintenance.state["buckaloues"] + "buckaloues!")
          await message.channel.send(reply)
 

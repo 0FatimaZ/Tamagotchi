@@ -46,7 +46,7 @@ helpMes = [
     "*>feed* for feeding your pet",
     "*>shower* for cleaning your pet", 
     "*>shop* for shopping items for your pet",
-    "*>bucks* for checking how many buckaloues you currently have"
+    "*>wallet* for checking how many buckaloues you currently have"
 
     "REACTIONS",
 
