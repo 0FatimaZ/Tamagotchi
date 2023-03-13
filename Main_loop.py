@@ -40,7 +40,9 @@ async def on_message(message):
     
     if not (message.author.bot):
 
-      
+      # Spørge om man vil begynde spillet. y/n?
+      # If yes sker det der i linjen under, hvis nej så break
+      # Når spillet starter skal der vises billeder af stats, cato og menu
       if contents.startswith(">feed"):
          await Feed.feed(client, message)
       elif contents.startswith(">shower"):
@@ -51,7 +53,7 @@ async def on_message(message):
             reply = Maintenance.helpMes
             for n in reply:
                 await message.channel.send(n)
-                await asyncio.sleep(3)
+                await asyncio.sleep(2)
       elif contents.startswith(">wallet"):
         await Wallet.wallet(client, message)
 

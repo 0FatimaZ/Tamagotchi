@@ -6,6 +6,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+PATH = "./Icons/"
 
 @client.event
 async def shop(client, message):
@@ -18,7 +19,7 @@ async def shop(client, message):
         await message.channel.send(reply)
 
         await message.channel.send("What would you like to buy?")
-        shop_message = await message.channel.send(file=discord.File("shop.PNG"))
+        shop_message = await message.channel.send(file=discord.File(PATH + "shop.PNG"))
         await shop_message.add_reaction("🍕")
         await shop_message.add_reaction("🍓")
         await shop_message.add_reaction("🍩")

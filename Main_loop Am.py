@@ -4,7 +4,6 @@ import Maintenance
 import Play
 import Feed
 import Shower
-import Help
 from Play import Game
 
 intents = discord.Intents.default()
@@ -55,7 +54,7 @@ async def on_message(message):
             await Play.play_2(message)
         
         elif contents.startswith(">Help"):
-            await Help.help(client, message)
+            pass
       
       
 

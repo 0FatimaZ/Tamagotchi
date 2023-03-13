@@ -8,6 +8,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+
 cup = ["🪣", "🪣", "🪣", "🪣", "🐭"]
 
 Game = {"cup_game": 0}

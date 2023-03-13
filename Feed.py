@@ -6,6 +6,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+PATH = "./Icons/"
+
 def fridge_empty():
     total = 0
     for food in Maintenance.fridge.values():
@@ -18,11 +20,11 @@ async def feed(client, message):
 
 
     if fridge_empty() == True:
-        await message.channel.send(file=discord.File("fridge_empty.PNG"))
+        await message.channel.send(file=discord.File(PATH + "fridge_empty.PNG"))
         await message.channel.send("Your fridge is empty :(")
         await message.channel.send("Go to the *>shop* to by more food.")
     elif fridge_empty() == False:
-        await message.channel.send(file=discord.File("fridge_full.PNG"))
+        await message.channel.send(file=discord.File(PATH + "fridge_full.PNG"))
         await message.channel.send("Things in your fridge: ")
         for (name, food) in Maintenance.fridge.items():
             if food.number > 0:

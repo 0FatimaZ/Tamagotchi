@@ -8,6 +8,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+PATH = "./Icons/"
+
 @client.event
 async def shower(client, message):
     contents = message.content
@@ -32,7 +34,7 @@ async def shower(client, message):
             elif Maintenance.state["stats"].clean < 3:
                 reply = "Let's clean your pet" + '⏳'
                 await message.channel.send(reply)
-                await message.channel.send(file=discord.File("Cleancat.png"))
+                await message.channel.send(file=discord.File(PATH + "Cleancat.png"))
                 await asyncio.sleep(5) 
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
