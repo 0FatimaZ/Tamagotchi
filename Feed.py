@@ -60,8 +60,10 @@ async def feed(client, message):
                     await message.channel.send("Your pet is full ❤️")
                 else:
                     new_number = Maintenance.fridge[str(reaction.emoji)].number - 1
+                    print(new_number)
                     Maintenance.fridge.update({str(reaction.emoji): Maintenance.Food(new_number, Maintenance.fridge[str(reaction.emoji)].price)})
                     new_hungry = Maintenance.state["stats"].hungry + 1
+                    print(new_hungry)
                     Maintenance.state.update({"stats": Maintenance.Health(new_hungry, Maintenance.state["stats"].clean,  Maintenance.state["stats"].happy)})    
                     await message.channel.send("You fed your pet!!")
 

@@ -45,6 +45,7 @@ async def shop(client, message):
             if str(reaction.emoji) in list(Maintenance.fridge.keys()) and Maintenance.state["buckaloues"] >= price:
                 Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] - Maintenance.fridge[str(reaction.emoji)].price})
                 new_number = Maintenance.fridge[str(reaction.emoji)].number + 1
+                print(new_number)
                 Maintenance.fridge.update({str(reaction.emoji): Maintenance.Food(new_number, Maintenance.fridge[str(reaction.emoji)].price)})
                 await message.channel.send("You bought a " + str(reaction.emoji) + "!")
             else:
