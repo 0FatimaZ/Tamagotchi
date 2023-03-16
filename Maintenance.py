@@ -28,6 +28,10 @@ state = {
     "buckaloues": 10
 }
 
+users = {
+    #key UserID : "Value" stats userID spillede på
+}
+
 #Lists
 
 helpMes = [

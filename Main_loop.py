@@ -5,7 +5,7 @@ import Play
 import Feed
 import Shower
 import Wallet
-import Quit
+import Save
 import Start
 import Shop
 
@@ -39,8 +39,8 @@ async def on_member_join(member):
 async def on_message(message):
     global run_game
     contents = message.content
-    user = message.author.id
     
+
     
     if not (message.author.bot):
       
@@ -64,8 +64,8 @@ async def on_message(message):
           await Wallet.wallet(client, message)
         elif contents.startswith(">shop"):
           await Shop.shop(client, message)
-        elif contents.startswith(">quit"):
-          await Quit.quit(client, message) #man kan stadig skrive commands selv efter man skriver quit
+        elif contents.startswith(">save"):
+          await Save.save(client, message) #man kan stadig skrive commands selv efter man skriver quit
           
         
 
