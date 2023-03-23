@@ -55,7 +55,7 @@ async def play(client, message):
 async def play_2(message):
     contents = message.content
     user = message.author.id
-    (userstate) = Maintenance.users[user]
+    (userfridge, userstate) = Maintenance.users[user]
 
     if cup[0] =="🐭":
         if contents.startswith("!1"):

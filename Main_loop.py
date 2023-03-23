@@ -40,18 +40,21 @@ async def on_message(message):
     global run_game
     contents = message.content
     user = message.author.id
-    (userstate) = Maintenance.users[user]
 
     if not (message.author.bot):
         
-        if userstate["stage"] == 1:
-
-          if contents.startswith(">Start"):
-            Maintenance.state.update({"stage": 2})
-            await message.channel.send("Welcome!")
+      
+          if contents.startswith(">start"):
             await Start.start(client, message) #mangler at sende stats, cato, og menu, ift health 
+            (userfridge, userstate) = Maintenance.users[user]
+            userstate["stage"] = 1
+            await message.channel.send("Welcome!")
+            
+
+          if userstate["stage"] == 1:
           
           if userstate["stage"] == 2:
+           
 
             if contents.startswith(">feed"):
               await Feed.feed(client, message)
