@@ -1,6 +1,6 @@
 import discord
-import asyncio
 import Maintenance 
+import pickle
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -9,7 +9,13 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def menu(message):
-    contents = message.content
+    user = message.author.id
 
-    if Maintenance.state["stats"].happy == 0:
-        await message.channel.send(file=discord.File("CatHappy.png"))
+    if user in Maintenance.users:
+        
+        with open('StateDict.p', 'rb') as fp:
+            state = pickle.load(fp)
+            fridge = pickle.load(fp)
+            Maintenance.users[user] = (fridge, state)
+    else:
+        Maintenance.users[user] = Maintenance.new_stats()
