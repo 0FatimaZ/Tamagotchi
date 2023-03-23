@@ -8,13 +8,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-def save_pet():
-    pass
-
 
 @client.event
-async def start(client, message):
-    contents = message.content
+async def start(message):
     user = message.author.id
 
     if user in Maintenance.users:

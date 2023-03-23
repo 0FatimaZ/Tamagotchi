@@ -12,7 +12,8 @@ PATH = "./Icons/"
 
 @client.event
 async def shower(client, message):
-    contents = message.content
+    (userstate) = Maintenance.users[user]
+
     reply = "Would you like to give Cato a shower?" + "if yes react with" + ': ' + ':shower:'
     shower_message = await message.channel.send(reply)
     await shower_message.add_reaction('🚿')  
@@ -29,24 +30,24 @@ async def shower(client, message):
     
     else:
         if str(reaction.emoji) == '🚿':
-            if Maintenance.state["stats"].clean == 3:
+            if userstate["stats"].clean == 3:
                 await message.channel.send("Your pet is already clean")
-            elif Maintenance.state["stats"].clean < 3:
+            elif userstate["stats"].clean < 3:
                 reply = "Let's clean your pet" + '⏳'
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File(PATH + "Cleancat.png"))
                 await asyncio.sleep(5) 
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
-                Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1}) 
-            elif Maintenance.state["stats"].clean == 0:
+                Maintenance.userstate.update ["buckaloues"] =+ 1 
+            elif userstate["stats"].clean == 0:
                 reply = "Your pet could really use a shower..." + '⏳'
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File(PATH + "Cleancat.png"))
                 await asyncio.sleep(5) 
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
-                Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+                Maintenance.userstate.update ["buckaloues"] =+ 1
                 
                 
 

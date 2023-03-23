@@ -14,23 +14,29 @@ class Food:
 
 #Dictionaries
 
-fridge = {
-    "🍕": Food(2, 3),
-    "🍓": Food(0, 1),
-    "🍩": Food(0, 2),
-    "🍙": Food(0, 4)
-}
+def new_stats():
+    fridge = {
+        "🍕": Food(2, 3),
+        "🍓": Food(0, 1),
+        "🍩": Food(0, 2),
+        "🍙": Food(0, 4)
+    }
 
-state = {
-    "current_page": 0,
-    "user": None,
-    "stats": Health(0, 0, 0),
-    "buckaloues": 10
-}
+    state = {
+        "current_page": 0,
+        "user": None,
+        "stats": Health(0, 0, 0),
+        "buckaloues": 10,
+        "stage": 1
+    }
+    return (fridge, state)
 
 users = {
     #key UserID : "Value" stats userID spillede på
 }
+# (userfridge, userstate) = Maintenance.users[userID]   #at få fat i begge states
+# userstate["stage"] = 2 #opdatere stage
+# userstate["stats"].clean += 1  #opdatere stat
 
 #Lists
 

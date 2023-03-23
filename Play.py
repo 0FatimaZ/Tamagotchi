@@ -15,7 +15,7 @@ Game = {"cup_game": 0}
 
 @client.event
 async def play(client, message):
-    contents = message.content
+
     reply = f"What game would you like to play? (You can currently only play one game)"
     game_message = await message.channel.send(reply)
     await game_message.add_reaction('🪣')
@@ -54,14 +54,16 @@ async def play(client, message):
 @client.event
 async def play_2(message):
     contents = message.content
+    user = message.author.id
+    (userstate) = Maintenance.users[user]
 
     if cup[0] =="🐭":
         if contents.startswith("!1"):
             await message.channel.send("You found the mouse!")
-            Maintenance.state["stats"].happy += 1
+            userstate["stats"].happy += 1  
             reply = "Your pet is now happy, you recieved 1 buckaloue! :3"
             await message.channel.send(reply)
-            Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+            userstate["stats"].buckaloues += 1 
         elif contents.startswith("!2" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -71,10 +73,10 @@ async def play_2(message):
     elif cup[1] == "🐭":
         if contents.startswith("!2"):
             await message.channel.send("You found the mouse!")
-            Maintenance.state["stats"].happy += 1
+            userstate["stats"].happy += 1 
             reply = "Your pet is now happy, you recieved 1 buckaloue! :3"
             await message.channel.send(reply)
-            Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+            userstate["stats"].buckaloues += 1 
         elif contents.startswith("!1" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -84,10 +86,10 @@ async def play_2(message):
     elif cup[2] == "🐭":
         if contents.startswith("!3"):
             await message.channel.send("You found the mouse!")
-            Maintenance.state["stats"].happy += 1
+            userstate["stats"].happy += 1 
             reply = "Your pet is now happy, you recieved 1 buckaloue! :3"
             await message.channel.send(reply)
-            Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+            userstate["stats"].buckaloues += 1 
         elif contents.startswith("!2" or "!1" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -97,10 +99,10 @@ async def play_2(message):
     elif cup[3] == "🐭":
         if contents.startswith("!4"):
             await message.channel.send("You found the mouse!")
-            Maintenance.state["stats"].happy += 1
+            userstate["stats"].happy += 1 
             reply = "Your pet is now happy, you recieved 1 buckaloue! :3"
             await message.channel.send(reply)
-            Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+            userstate["stats"].buckaloues += 1 
         elif contents.startswith("!2" or "!3" or "!1" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
@@ -110,10 +112,10 @@ async def play_2(message):
     elif cup[4] == "🐭":
         if contents.startswith("!5"):
             await message.channel.send("You found the mouse!")
-            Maintenance.state["stats"].happy += 1
+            userstate["stats"].happy += 1 
             reply = "Your pet is now happy, you recieved 1 buckaloue! :3"
             await message.channel.send(reply)
-            Maintenance.state.update({"buckaloues": Maintenance.state["buckaloues"] + 1})
+            userstate["stats"].buckaloues += 1 
         elif contents.startswith("!2" or "!3" or "!4" or "!1"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
