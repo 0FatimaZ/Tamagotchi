@@ -9,8 +9,7 @@ client = discord.Client(intents=intents)
 PATH = "./Icons/"
 
 @client.event
-async def wallet(client, message):
-    contents = message.content
+async def wallet(message):
 
     if Maintenance.state["buckaloues"] == 0:
         reply = ("You currently have 0 buckaloues...")

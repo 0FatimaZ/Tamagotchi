@@ -1,14 +1,14 @@
 import discord
 import asyncio
 import Maintenance
+import Start
 import Play
 import Feed
 import Shower
 import Wallet
-import Quit
-import Start
 import Shop
-
+import Quit
+#import Main
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -42,50 +42,46 @@ async def on_message(message):
     user = message.author.id
 
     if not (message.author.bot):
-        
-      
-          if contents.startswith(">start"):
-            await Start.start(client, message) #mangler at sende stats, cato, og menu, ift health 
-            (userfridge, userstate) = Maintenance.users[user]
-            userstate["stage"] = 1
+      if contents.startswith(">start"):
+            await Start.start(message) #mangler at sende stats, cato, og menu, ift health 
             await message.channel.send("Welcome!")
-            
+            (userfridge, userstate) = Maintenance.users[user]
+            userstate["stage"] = 2
+        #    await Main.main(client, message)
 
-          if userstate["stage"] == 1:
-          
-          if userstate["stage"] == 2:
+            if userstate["stage"] == 2:
+
+                if contents.startswith(">feed"):
+                    await Feed.feed(client, message)
+
+                elif contents.startswith(">shower"):
+                    await Shower.shower(client, message)
+
+                elif contents.startswith(">play"):
+                    await Play.play(client, message)
+
+                elif contents.startswith(">help"):
+                    reply = Maintenance.helpMes
+                    for n in reply:
+                        await message.channel.send(n)
+                        await asyncio.sleep(2)
+
+                elif contents.startswith(">wallet"):
+                    await Wallet.wallet(message)
+
+                elif contents.startswith(">shop"):
+                    await Shop.shop(client, message)
+
+                elif contents.startswith(">quit"):
+                    userstate["stage"] == 1
+                    await Quit.quit() 
+              
+        #    if userstate["stage"] == 3:
+         #     await Main.main(client, message)
+
+                
+                
            
-
-            if contents.startswith(">feed"):
-              await Feed.feed(client, message)
-
-            elif contents.startswith(">shower"):
-              await Shower.shower(client, message)
-
-            elif contents.startswith(">play"):
-              await Play.play(client, message)
-
-            elif contents.startswith(">help"):
-                reply = Maintenance.helpMes
-                for n in reply:
-                    await message.channel.send(n)
-                    await asyncio.sleep(2)
-
-            elif contents.startswith(">wallet"):
-              await Wallet.wallet(client, message)
-
-            elif contents.startswith(">shop"):
-              await Shop.shop(client, message)
-
-            elif contents.startswith(">quit"):
-              userstate["stage"] == 1
-              await Quit.quit(client, message) 
-            
-      
-        
-
-      
-      
 
 token = get_token()
 client.run(token)
