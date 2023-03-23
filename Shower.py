@@ -12,7 +12,7 @@ PATH = "./Icons/"
 
 @client.event
 async def shower(client, message):
-    (userstate) = Maintenance.users[user]
+    (userfridge, userstate) = Maintenance.users[user]
 
     reply = "Would you like to give Cato a shower?" + "if yes react with" + ': ' + ':shower:'
     shower_message = await message.channel.send(reply)
