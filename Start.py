@@ -8,14 +8,19 @@ client = discord.Client(intents=intents)
 
 
 @client.event
-async def menu(message):
+async def start(message):
+    contents = message.content
     user = message.author.id
 
-    if user in Maintenance.users:
-        
-        with open('StateDict.p', 'rb') as fp:
-            state = pickle.load(fp)
-            fridge = pickle.load(fp)
-            Maintenance.users[user] = (fridge, state)
-    else:
-        Maintenance.users[user] = Maintenance.new_stats()
+    if contents.startswith(">start"):
+        if user in Maintenance.users:
+            with open('DefaultStat.p', 'rb') as fp:
+                state = pickle.load(fp)
+                fridge = pickle.load(fp)
+                Maintenance.users[user] = (fridge, state)
+
+        else:
+            Maintenance.users[user] = Maintenance.new_stats()
+
+
+    

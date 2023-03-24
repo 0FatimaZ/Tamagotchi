@@ -14,19 +14,28 @@ class Food:
 
 #Dictionaries
 
-fridge = {
-    "🍕": Food(2, 3),
-    "🍓": Food(0, 1),
-    "🍩": Food(0, 2),
-    "🍙": Food(0, 4)
-}
+def new_stats():
+    fridge = {
+        "🍕": Food(2, 3),
+        "🍓": Food(0, 1),
+        "🍩": Food(0, 2),
+        "🍙": Food(0, 4)
+    }
 
-state = {
-    "stage": 0,
-    "user": None,
-    "stats": Health(0, 0, 0),
-    "buckaloues": 10
-}
+    state = {
+        "current_page": 0,
+        "user": None,
+        "stats": Health(0, 0, 0),
+        "buckaloues": 10,
+        "stage": 0
+    }
+    return (fridge, state)
+
+users = {}
+
+# (fridge, state) = Maintenance.users[user]   #at få fat i begge states
+# state["stage"] = 2 #opdatere stage
+# state["stats"].clean += 1  #opdatere stat
 
 #Lists
 

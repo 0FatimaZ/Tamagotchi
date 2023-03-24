@@ -10,12 +10,12 @@ PATH = "./Icons/"
 
 @client.event
 async def shop(client, message):
-    (userfridge, userstate) = Maintenance.users[user]
+    (fridge, state) = Maintenance.users[user]
     
-    if userstate["buckaloues"] <= 0:
+    if state["buckaloues"] <= 0:
         await message.channel.send("Your are too poor to buy anything 3:")
     else:
-        reply = "You have " + str(userstate["buckaloues"]) + " buckaloues."
+        reply = "You have " + str(state["buckaloues"]) + " buckaloues."
         await message.channel.send(reply)
 
         await message.channel.send("What would you like to buy?")
@@ -26,7 +26,7 @@ async def shop(client, message):
         await shop_message.add_reaction("🍙")
     
         def check(reaction, user):
-            return user == message.author and str(reaction.emoji) in list(userfridge.keys())
+            return user == message.author and str(reaction.emoji) in list(fridge.keys())
         
         try:
             reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)
@@ -41,10 +41,10 @@ async def shop(client, message):
         
         
         if reaction is not None:
-            price = userfridge[str(reaction.emoji)].price
-            if str(reaction.emoji) in list(userfridge.keys()) and userstate["buckaloues"] >= price:
-                userstate["buckaloues"] -= userfridge[str(reaction.emoji)].price 
-                userfridge[str(reaction.emoji)].number += 1
+            price = fridge[str(reaction.emoji)].price
+            if str(reaction.emoji) in list(fridge.keys()) and state["buckaloues"] >= price:
+                state["buckaloues"] -= fridge[str(reaction.emoji)].price 
+                fridge[str(reaction.emoji)].number += 1
                 await message.channel.send("You bought a " + str(reaction.emoji) + "!")
             else:
                 await message.channel.send("You don't have enough buckaloues to buy this item :'(")
