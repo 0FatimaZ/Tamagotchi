@@ -8,6 +8,7 @@ import Shower
 import Wallet
 import Shop
 import Quit
+import pickle
 #import Main
 
 intents = discord.Intents.default()
@@ -39,16 +40,17 @@ async def on_member_join():
 async def on_message(message):
     global run_game
     contents = message.content
-    user = message.author.id
+    user = str(message.author.id)
 
     if not (message.author.bot):
       await Start.start(message)
+      print(Start.start(message))
       (fridge, state) = Maintenance.users[user]
 
       if state["stage"] == 0:
         await message.channel.send("Welcome!")
         # await Main.main(client, message)
-        state["stage"] = 1
+        state.update({"stage": 1})
 
       if state["stage"] >= 1:
         if contents.startswith(">help"):
@@ -77,12 +79,11 @@ async def on_message(message):
             await Shop.shop(client, message)
 
 
-        #    if stage == 3:
-        #     await Main.main(client, message)
+      #    if stage == 3:
+      #     await Main.main(client, message)
 
-                
-                
-           
+            
+
 
 token = get_token()
 client.run(token)

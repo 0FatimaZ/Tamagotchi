@@ -29,6 +29,7 @@ def new_stats():
         "buckaloues": 10,
         "stage": 0
     }
+
     return (fridge, state)
 
 users = {}

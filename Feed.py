@@ -11,7 +11,7 @@ PATH = "./Icons/"
 Feed = {"feeding": 0}
 
 def fridge_empty(message):
-    user = message.author.id
+    user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
     total = 0
     for food in fridge.values():
@@ -20,7 +20,7 @@ def fridge_empty(message):
 
 @client.event
 async def feed(client, message):
-    user = message.author.id
+    user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
 
     while Feed["feeding"] == 0:

@@ -10,17 +10,17 @@ client = discord.Client(intents=intents)
 @client.event
 async def start(message):
     contents = message.content
-    user = message.author.id
+    user = str(message.author.id)
 
     if contents.startswith(">start"):
         if user in Maintenance.users:
             with open('DefaultStat.p', 'rb') as fp:
                 state = pickle.load(fp)
                 fridge = pickle.load(fp)
-                Maintenance.users[user] = (fridge, state)
-
+                Maintenance.users.update({user: (fridge, state)})
         else:
-            Maintenance.users[user] = Maintenance.new_stats()
+            Maintenance.users.update({user: Maintenance.new_stats()})
+    
 
 
     
