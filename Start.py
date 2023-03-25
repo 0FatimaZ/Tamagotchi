@@ -18,8 +18,10 @@ async def start(message):
                 state = pickle.load(fp)
                 fridge = pickle.load(fp)
                 Maintenance.users.update({user: (fridge, state)})
+                print(Maintenance.users)
         else:
             Maintenance.users.update({user: Maintenance.new_stats()})
+            print(Maintenance.users)
     
 
 

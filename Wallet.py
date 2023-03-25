@@ -10,16 +10,19 @@ PATH = "./Icons/"
 
 @client.event
 async def wallet(message):
+    
+    user = str(message.author.id)
 
-    if Maintenance.state["buckaloues"] == 0:
+    (fridge, state) = Maintenance.users[user]
+    if state["buckaloues"] == 0:
         reply = ("You currently have 0 buckaloues...")
         await message.channel.send(reply)
         await message.channel.send(file=discord.File(PATH + "EmptyWallet.png"))
-    elif Maintenance.state["buckaloues"] < 5: 
-        reply = ("You currently have " +  str(Maintenance.state["buckaloues"])  + " buckaloues..that's not much.")
+    elif state["buckaloues"] < 5: 
+        reply = ("You currently have " +  str(state["buckaloues"])  + " buckaloues..that's not much.")
         await message.channel.send(reply)
         await message.channel.send(file=discord.File(PATH + "HalfWallet.png"))
-    elif Maintenance.state["buckaloues"] > 5:
-        reply = ("You currently have " +  str(Maintenance.state["buckaloues"])  + " buckaloues!")
+    elif state["buckaloues"] > 5:
+        reply = ("You currently have " +  str(state["buckaloues"])  + " buckaloues!")
         await message.channel.send(reply)
         await message.channel.send(file=discord.File(PATH + "FullWallet.png"))
