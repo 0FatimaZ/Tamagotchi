@@ -4,9 +4,9 @@ import Maintenance
 import Play
 import Feed
 import Shower
-import Help
 from Play import Game
 import Start
+import Main
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -44,6 +44,7 @@ async def on_message(message):
         if Maintenance.state["stage"] == 0 and contents.startswith("pet"):
             await Start.menu(message)
             Maintenance.state["stage"] += 1
+            await Main.menu(message)
         
         elif Maintenance.state["stage"] == 1:
         
@@ -60,9 +61,6 @@ async def on_message(message):
             
             elif Game["cup_game"] == 1:
                 await Play.play_2(message)
-            
-            elif contents.startswith(">Help"):
-                await Help.help(client, message)
             
             elif contents.startswith(">menu"):
                 await Start.menu(message)
