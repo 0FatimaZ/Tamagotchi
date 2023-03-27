@@ -41,9 +41,11 @@ async def on_message(message):
     
     if not (message.author.bot):
 
-        if Maintenance.state["stage"] == 0 and contents.startswith("pet"):
+        (fridge, state) = Maintenance.users[user]
+
+        if state["stage"] == 0 and contents.startswith("pet"):
             await Start.menu(message)
-            Maintenance.state["stage"] += 1
+            state["stage"] += 1
             await Main.menu(message)
         
         elif Maintenance.state["stage"] == 1:

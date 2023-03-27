@@ -8,7 +8,7 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def quit(message):
-    user = message.author.id
+    user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
 
     state["stage"] = 0
