@@ -40,13 +40,15 @@ async def on_message(message):
     user = message.author.id
     
     if not (message.author.bot):
+        (fridge, state) = Maintenance.users[user]
 
-        if Maintenance.state["stage"] == 0 and contents.startswith("pet"):
+        if state["stage"] == 0 and contents.startswith("pet"):
             await Start.menu(message)
-            Maintenance.state["stage"] += 1
-            await Main.menu(message)
+            state["stage"] += 1
+            
         
         elif Maintenance.state["stage"] == 1:
+            await Main.menu(message)
         
             if contents.startswith("feed"):
                 await Feed.feed(client, message)
