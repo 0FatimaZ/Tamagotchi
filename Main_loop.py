@@ -2,6 +2,7 @@ import discord
 import asyncio
 import Maintenance
 import Play
+from Play import Game
 import Feed
 import Shower
 import Wallet
@@ -44,17 +45,19 @@ async def on_message(message):
     user = str(message.author.id)
 
     if not (message.author.bot):
-      await Start.start(message)
+      if contents.startswith(">start"):
+        await Start.start(message)
       #await message.channel.send (Start.start(message))
       (fridge, state) = Maintenance.users[user]
 
-      if state["stage"] == 0:
+      if state["stage"] == 0: #Hvis man skriver start 2 gange i træk, stopper koden med at virk anden gang
         await message.channel.send("Welcome!")
         # await Main.main(client, message)
         state["stage"] = 1
         state.update({"stage": 1})
+            
+      elif state["stage"] == 1:
 
-      elif state["stage"] >= 1:
         if contents.startswith(">help"):
           reply = Maintenance.helpMes
           for n in reply:
@@ -64,25 +67,26 @@ async def on_message(message):
         elif contents.startswith(">wallet"):
             await Wallet.wallet(message)
 
-        elif contents.startswith(">quit"):
-            await Quit.quit(message)
-            
-      elif state["stage"] == 1:
-        if contents.startswith(">feed"):
+        elif contents.startswith(">feed"):
             await Feed.feed(client, message)
 
         elif contents.startswith(">shower"):
             await Shower.shower(client, message)
 
-        elif contents.startswith(">play"):
-            await Play.play(client, message)
+        elif contents.startswith(">play") and Game["cup_game"] == 0:
+                """ img_file = open('Images/MoodLow.png')
+                await message.channel.send(img_file) """
+                await Play.play(client, message)
+            
+        elif Game["cup_game"] == 1:
+            await Play.play_2(message)
         
         elif contents.startswith(">shop"):
             await Shop.shop(client, message)
 
-        elif contents.startswith(">quit"):
+        elif contents.startswith(">quit"): #man får en key error
             state["stage"] == 1
-            await Quit.quit(client, message) 
+            await Quit.quit(message) 
             
       
 

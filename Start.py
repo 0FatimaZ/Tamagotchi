@@ -14,11 +14,7 @@ async def start(message):
 
     if contents.startswith(">start"):
         if user in Maintenance.users:
-            with open('DefaultStat.p', 'rb') as fp:
-                state = pickle.load(fp)
-                fridge = pickle.load(fp)
-                Maintenance.users.update({user: (fridge, state)})
-                print(Maintenance.users)
+            pass
         else:
             Maintenance.users.update({user: Maintenance.new_stats()})
             print(Maintenance.users)
