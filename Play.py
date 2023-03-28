@@ -52,7 +52,7 @@ async def play(client, message):
 @client.event
 async def play_2(message):
     contents = message.content
-    user = message.author.id
+    user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
     state["stats"].hungry -= 1
 

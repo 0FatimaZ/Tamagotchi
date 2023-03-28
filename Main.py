@@ -19,26 +19,37 @@ async def menu(message):
     (fridge, state) = Maintenance.users[user]
 
     hungry_pics = discord.File(PATH + "HungerFull.png")
-    if state["stats"].hungry == 0:
+    if state["stats"].hungry <= 0:
         hungry_pics = discord.File(PATH + "HungerLow.png")
     elif state["stats"].hungry == 1:
         hungry_pics = discord.File(PATH + "HungerMiddle.png")
     
     clean_pics = discord.File(PATH + "HealthFull_1.png")
-    if state["stats"].clean == 0:
+    if state["stats"].clean <= 0:
         clean_pics = discord.File(PATH + "HealthLow.png")
     elif state["stats"].clean == 1:
         clean_pics = discord.File(PATH + "HealthMiddle.png")
     
     happy_pics = discord.File(PATH + "MoodFull.png")
-    if state["stats"].happy == 0:
+    if state["stats"].happy <= 0:
         happy_pics = discord.File(PATH + "MoodLow.png")
     elif state["stats"].happy == 1:
         happy_pics = discord.File(PATH + "MoodMiddle.png")
+
+    cat = discord.File(PATH + "CatHappy.png")
+    if state["stats"].happy >= 2 and state["stats"].clean >= 2:
+        cat = discord.File(PATH + "CatHappy.png")
+    elif state["stats"].happy >= 2 and state["stats"].clean <= 1:
+        cat = discord.File(PATH + "DirtyHappyCat.png")
+    elif state["stats"].happy <= 1 and state["stats"].clean >= 2:
+        cat = discord.File(PATH + "EmptyWallet")
+    elif state["stats"].happy <= 1 and state["stats"].clean >= 2:
+        cat = discord.File(PATH + "SadDirtyCat.png")
     
-    await message.channel.send(files=[hungry_pics])
-    await message.channel.send(files=[clean_pics])
-    await message.channel.send(files=[happy_pics])
+    await message.channel.send(files=[hungry_pics] + [clean_pics] + [happy_pics])
+    await message.channel.send(files=[cat])
+    await message.channel.send(file=discord.File(PATH + "FastMenu.png"))
+
 
     """ if pet.hungry == 0:
         await message.channel.send(file=discord.File(PATH + "HungerLow.png"))
