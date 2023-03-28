@@ -9,6 +9,7 @@ import Wallet
 import Quit
 import Start
 import Shop
+import Main
 #import pickle
 
 
@@ -57,6 +58,7 @@ async def on_message(message):
         state.update({"stage": 1})
             
       elif state["stage"] == 1:
+        await Main.menu(message)
 
         if contents.startswith(">help"):
           reply = Maintenance.helpMes

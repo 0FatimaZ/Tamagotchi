@@ -47,7 +47,8 @@ async def shower(client, message):
                 await message.channel.send(reply)
                 state["buckaloues"] += 1
                 print(state["buckaloues"])
-                state["stats"].clean +=1
+                state["stats"].clean += 1
+                state["stats"].happy -= 1
                 print(str(state["stats"].clean))
             
             elif state["stats"].clean == 0:
