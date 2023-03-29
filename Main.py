@@ -24,7 +24,7 @@ async def menu(message):
     elif state["stats"].hungry == 1:
         hungry_pics = discord.File(PATH + "HungerMiddle.png")
     
-    clean_pics = discord.File(PATH + "HealthFull_1.png")
+    clean_pics = discord.File(PATH + "HealthFulL.png")
     if state["stats"].clean <= 0:
         clean_pics = discord.File(PATH + "HealthLow.png")
     elif state["stats"].clean == 1:

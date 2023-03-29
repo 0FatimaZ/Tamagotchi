@@ -48,12 +48,10 @@ async def on_message(message):
     if not (message.author.bot):
       if contents.startswith(">start"):
         await Start.start(message)
-      #await message.channel.send (Start.start(message))
       (fridge, state) = Maintenance.users[user]
 
-      if state["stage"] == 0: #Hvis man skriver start 2 gange i træk, stopper koden med at virk anden gang
+      if state["stage"] == 0: 
         await message.channel.send("Welcome!")
-        # await Main.main(client, message)
         state["stage"] = 1
         state.update({"stage": 1})
             
