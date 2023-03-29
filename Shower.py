@@ -59,7 +59,7 @@ async def shower(client, message):
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 state["buckaloues"] += 1
-                state["stats"].clean +=1
+                state["stats"].clean += 2
                 
                 
 

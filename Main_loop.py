@@ -51,12 +51,12 @@ async def on_message(message):
       (fridge, state) = Maintenance.users[user]
 
       if state["stage"] == 0: 
-        await message.channel.send("Welcome!")
+        await Main.menu(message)
+        #await message.channel.send("Welcome!")
         state["stage"] = 1
         state.update({"stage": 1})
             
       elif state["stage"] == 1:
-        await Main.menu(message)
 
         if contents.startswith(">help"):
           reply = Maintenance.helpMes
@@ -84,8 +84,13 @@ async def on_message(message):
         elif contents.startswith(">shop"):
             await Shop.shop(client, message)
 
+        elif contents.startswith(">menu"):
+            state.update({"stage": 0})
+            state["stage"] = 0
+            print(str(state["stage"]))
+
         elif contents.startswith(">quit"): #man får en key error
-            state["stage"] == 1
+            state["stage"] = 1
             await Quit.quit(message) 
             
       

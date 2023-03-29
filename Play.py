@@ -57,9 +57,10 @@ async def play_2(message):
     state["stats"].hungry -= 1
 
     if cup[0] =="🐭":
-        if contents.startswith("!1"):
+        if contents.startswith("1"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
+            state["buckaloues"] += 2
             print(state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -68,9 +69,10 @@ async def play_2(message):
         Game.update({"cup_game": 0})
 
     elif cup[1] == "🐭":
-        if contents.startswith("!2"):
+        if contents.startswith("2"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
+            state["buckaloues"] += 2
             print(state["stats"].happy)
         elif contents.startswith("!1" or "!3" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -79,9 +81,10 @@ async def play_2(message):
         Game.update({"cup_game": 0})
 
     elif cup[2] == "🐭":
-        if contents.startswith("!3"):
+        if contents.startswith("3"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
+            state["buckaloues"] += 2
             print(state["stats"].happy)
         elif contents.startswith("!2" or "!1" or "!4" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -90,9 +93,10 @@ async def play_2(message):
         Game.update({"cup_game": 0})
 
     elif cup[3] == "🐭":
-        if contents.startswith("!4"):
+        if contents.startswith("4"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
+            state["buckaloues"] += 2
             print(state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!1" or "!5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -101,9 +105,10 @@ async def play_2(message):
         Game.update({"cup_game": 0})
 
     elif cup[4] == "🐭":
-        if contents.startswith("!5"):
+        if contents.startswith("5"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
+            state["buckaloues"] += 2
             print(state["stats"].happy)
         elif contents.startswith("!2" or "!3" or "!4" or "!1"):
                 await message.channel.send("Uuuuuh. Better luck next time!")

@@ -14,10 +14,11 @@ async def start(message):
 
     if contents.startswith(">start"):
         if user in Maintenance.users:
-            pass
+            await message.channel.send("Welcome!")
         else:
             Maintenance.users.update({user: Maintenance.new_stats()})
             print(Maintenance.users)
+            await message.channel.send("Welcome to the game!")
     
 
 
