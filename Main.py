@@ -36,15 +36,19 @@ async def menu(message):
     elif state["stats"].happy == 1:
         happy_pics = discord.File(PATH + "MoodMiddle.png")
 
-    cat = discord.File(PATH + "CatHappy.png")
-    if state["stats"].happy >= 2 and state["stats"].clean >= 2:
-        cat = discord.File(PATH + "CatHappy.png")
+    
+    happy_pic = discord.File(PATH + "CatHappy.png")
+    happy_dirty_pic = discord.File(PATH + "DirtyHappyCat.png")
+    #sad_pic = no path
+    sad_dirty_pic = discord.File(PATH + "SadDirtyCat.png")
+    if state["stats"].happy <= 2 and state["stats"].clean <= 2:
+        cat = happy_pic
     elif state["stats"].happy >= 2 and state["stats"].clean <= 1:
-        cat = discord.File(PATH + "DirtyHappyCat.png")
+        cat = happy_dirty_pic
     elif state["stats"].happy <= 1 and state["stats"].clean >= 2:
         cat = discord.File(PATH + "EmptyWallet")
-    elif state["stats"].happy <= 1 and state["stats"].clean >= 2:
-        cat = discord.File(PATH + "SadDirtyCat.png")
+    elif state["stats"].happy <= 1 and state["stats"].clean <= 1:
+        cat = sad_dirty_pic
     
     await message.channel.send(files=[hungry_pics] + [clean_pics] + [happy_pics])
     await message.channel.send(files=[cat])
