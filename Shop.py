@@ -10,6 +10,7 @@ PATH = "./Icons/"
 
 @client.event
 async def shop(client, message):
+
     (fridge, state) = Maintenance.users[user]
     
     if state["buckaloues"] <= 0:
@@ -26,7 +27,7 @@ async def shop(client, message):
         await shop_message.add_reaction("🍙")
     
         def check(reaction, user):
-            return user == message.author and str(reaction.emoji) in list(fridge.keys())
+            return user and str(reaction.emoji) in list(fridge.keys())
         
         try:
             reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)

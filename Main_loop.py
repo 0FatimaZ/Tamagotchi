@@ -85,9 +85,10 @@ async def on_message(message):
             await Shop.shop(client, message)
 
         elif contents.startswith(">menu"):
-            state.update({"stage": 0})
-            state["stage"] = 0
-            print(str(state["stage"]))
+            #state.update({"stage": 0})
+            #state["stage"] = 0
+            #print(str(state["stage"]))
+            await Main.menu(message)
 
         elif contents.startswith(">quit"): #man får en key error
             state["stage"] = 1
