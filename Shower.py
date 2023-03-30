@@ -36,10 +36,10 @@ async def shower(client, message):
     else:
         
         if str(reaction.emoji) == '🚿':
-            if state["stats"].clean == 3:
+            if state["stats"].clean >= 2:
                 await message.channel.send("Your pet is already clean")
             
-            elif state["stats"].clean < 3:
+            elif state["stats"].clean < 2:
                 reply = "Let's clean your pet" + '⏳'
                 await message.channel.send(reply)
                 await message.channel.send(file=discord.File(PATH + "Cleancat.png"))
@@ -48,8 +48,10 @@ async def shower(client, message):
                 await message.channel.send(reply)
                 state["buckaloues"] += 1
                 print(state["buckaloues"])
-                state["stats"].clean += 1
+                state["stats"].clean += 2
                 state["stats"].happy -= 1
+                if state["stats"].happy < 0:
+                    state["stats"].happy = 0
                 print(str(state["stats"].clean))
             
             elif state["stats"].clean == 0:
@@ -60,7 +62,7 @@ async def shower(client, message):
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
                 state["buckaloues"] += 1
-                state["stats"].clean += 1
+                state["stats"].clean += 2
                 
                 
 

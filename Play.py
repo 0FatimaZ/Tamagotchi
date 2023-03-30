@@ -41,7 +41,7 @@ async def play(client, message):
                 await asyncio.sleep(3)
                 await msg1.delete()
                 msg2 = await message.channel.send("".join(cup))
-                await asyncio.sleep(3)
+                await asyncio.sleep(1)
                 await msg2.delete()
                 msg1 = await message.channel.send("🪣🪣🪣🪣🪣")
                 Game.update({"cup_game": 1})
@@ -55,6 +55,8 @@ async def play_2(message):
     user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
     state["stats"].hungry -= 1
+    if state["stats"].hungry < 0:
+         state["stats"].hungry = 0
 
     if cup[0] =="🐭":
         if contents.startswith("1"):

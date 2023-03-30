@@ -54,7 +54,6 @@ async def on_message(message):
 
       if state["stage"] == 0: 
         await Main.menu(message)
-        #await message.channel.send("Welcome!")
         state["stage"] = 1
         state.update({"stage": 1})
             
@@ -76,8 +75,6 @@ async def on_message(message):
             await Shower.shower(client, message)
 
         elif contents.startswith(">play") and Game["cup_game"] == 0:
-                """ img_file = open('Images/MoodLow.png')
-                await message.channel.send(img_file) """
                 await Play.play(client, message)
             
         elif Game["cup_game"] == 1:
@@ -87,9 +84,6 @@ async def on_message(message):
             await Shop.shop(client, message)
 
         elif contents.startswith(">menu"):
-            #state.update({"stage": 0})
-            #state["stage"] = 0
-            #print(str(state["stage"]))
             await Main.menu(message)
 
         elif contents.startswith(">quit"): #man får en key error

@@ -50,6 +50,8 @@ async def menu(message):
     elif state["stats"].happy <= 1 and state["stats"].clean <= 1:
         cat = sad_dirty_pic
     
-    await message.channel.send(files=[hungry_pics] + [clean_pics] + [happy_pics])
+    await message.channel.send(files=[hungry_pics])
+    await message.channel.send(files=[clean_pics])
+    await message.channel.send(files=[happy_pics])
     await message.channel.send(files=[cat])
     await message.channel.send(file=discord.File(PATH + "FastMenu.png"))
