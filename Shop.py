@@ -11,7 +11,9 @@ PATH = "./Icons/"
 @client.event
 async def shop(client, message):
 
+    user = str(message.author.id)
     (fridge, state) = Maintenance.users[user]
+    
     
     if state["buckaloues"] <= 0:
         await message.channel.send("Your are too poor to buy anything 3:")
