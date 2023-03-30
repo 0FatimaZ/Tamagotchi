@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import Maintenance
+import Main
 
 
 
@@ -63,6 +64,8 @@ async def shower(client, message):
                 await message.channel.send(reply)
                 state["buckaloues"] += 1
                 state["stats"].clean += 2
+            
+            await Main.menu(message)
                 
                 
 

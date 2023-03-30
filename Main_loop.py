@@ -45,13 +45,12 @@ async def on_message(message):
 
     user = str(message.author.id)
 
-    #while True:
-
     if not (message.author.bot):
       if contents.startswith(">start"):
         await Start.start(message)
       (fridge, state) = Maintenance.users[user]
-
+    
+    #while game == True:
       if state["stage"] == 0: 
         await Main.menu(message)
         state["stage"] = 1
@@ -75,7 +74,7 @@ async def on_message(message):
             await Shower.shower(client, message)
 
         elif contents.startswith(">play") and Game["cup_game"] == 0:
-                await Play.play(client, message)
+            await Play.play(client, message)
             
         elif Game["cup_game"] == 1:
             await Play.play_2(message)
@@ -87,13 +86,20 @@ async def on_message(message):
             await Main.menu(message)
 
         elif contents.startswith(">quit"): #man får en key error
-            state["stage"] = 1
+            state["stage"] = 0
+            print(str(state["stage"]))
             await Quit.quit(message) 
-          
+            #break
+            
+        
+        else:
+            pass
     
 
 token = get_token()
 client.run(token)
+
+
   # user = message.author.id
 
   # if not (message.author.bot):

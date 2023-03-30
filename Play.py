@@ -2,6 +2,7 @@ import discord
 import asyncio
 import random
 import Maintenance
+import Main
 
 
 intents = discord.Intents.default()
@@ -117,3 +118,5 @@ async def play_2(message):
         else:
             await message.channel.send("What? What does that even mean?")
         Game.update({"cup_game": 0})
+    
+    await Main.menu(message)
