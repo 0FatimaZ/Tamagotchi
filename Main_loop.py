@@ -45,6 +45,8 @@ async def on_message(message):
 
     user = str(message.author.id)
 
+    #while True:
+
     if not (message.author.bot):
       if contents.startswith(">start"):
         await Start.start(message)
@@ -93,15 +95,15 @@ async def on_message(message):
         elif contents.startswith(">quit"): #man får en key error
             state["stage"] = 1
             await Quit.quit(message) 
-            
-      
+          
+    
 
 token = get_token()
 client.run(token)
-    # user = message.author.id
+  # user = message.author.id
 
-    # if not (message.author.bot):
-        
+  # if not (message.author.bot):
+      
     #     if user in Maintenance.users:
 
     #       if contents.startswith(">start"):
