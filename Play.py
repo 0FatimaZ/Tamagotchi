@@ -62,7 +62,7 @@ async def play_2(message):
             state["stats"].happy += 1
             state["buckaloues"] += 2
             print(state["stats"].happy)
-        elif contents.startswith("!2" or "!3" or "!4" or "!5"):
+        elif contents.startswith("2" or "3" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
             await message.channel.send("What? What does that even mean?")
@@ -74,7 +74,7 @@ async def play_2(message):
             state["stats"].happy += 1
             state["buckaloues"] += 2
             print(state["stats"].happy)
-        elif contents.startswith("!1" or "!3" or "!4" or "!5"):
+        elif contents.startswith("1" or "3" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
             await message.channel.send("What? What does that even mean?")
@@ -86,7 +86,7 @@ async def play_2(message):
             state["stats"].happy += 1
             state["buckaloues"] += 2
             print(state["stats"].happy)
-        elif contents.startswith("!2" or "!1" or "!4" or "!5"):
+        elif contents.startswith("2" or "1" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
             await message.channel.send("What? What does that even mean?")
@@ -98,7 +98,7 @@ async def play_2(message):
             state["stats"].happy += 1
             state["buckaloues"] += 2
             print(state["stats"].happy)
-        elif contents.startswith("!2" or "!3" or "!1" or "!5"):
+        elif contents.startswith("2" or "3" or "1" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
             await message.channel.send("What? What does that even mean?")
@@ -110,7 +110,7 @@ async def play_2(message):
             state["stats"].happy += 1
             state["buckaloues"] += 2
             print(state["stats"].happy)
-        elif contents.startswith("!2" or "!3" or "!4" or "!1"):
+        elif contents.startswith("2" or "3" or "4" or "1"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
         else:
             await message.channel.send("What? What does that even mean?")
