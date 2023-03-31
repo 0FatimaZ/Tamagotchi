@@ -48,23 +48,32 @@ helpMes = [
     "The currency in this game is called *buckaloue* which allows you to shop for items.",
     "You can obtain buckaloues by caring for your pet",
 
+    "-",
+
     "COMMANDS",
 
-    "The preifx is >",
+    "The prefix is >",
     "*>help* for explaining the game. ",
     "*>play* for playing mini games with your pet", 
     "*>feed* for feeding your pet",
     "*>shower* for cleaning your pet", 
-    ">shop* for shopping items for your pet",
+    "*>shop* for shopping items for your pet",
+    "*>menu* for returning to the main menu",
+
+    "-",
 
     "REACTIONS",
 
     "You will be able to react on a message using emojis.",
     "Tip:  You can react on a message when the reactions are visible, otherwise you'll write the command/answer (remember the prefix >)",
 
+    "-",
+
     "STATS",
 
     "The stats are the 3 top bars that show you your pets *Hunger, Happiness and Cleanliness*",
-    "Keep an eye on your pets stats so that your pet doesn't get sick."
+    "Keep an eye on your pets stats so that your pet doesn't get sick.",
+
+    "You may start the game, have fun!"
 
 ]

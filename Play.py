@@ -34,6 +34,7 @@ async def play(client, message):
     
     else:
         if reaction is not None:
+            await game_message.delete()
             if str(reaction.emoji) == '🪣' and  Game["cup_game"] == 0:
                 reply = "Let's play the cup game."
                 await message.channel.send(reply)
@@ -42,7 +43,7 @@ async def play(client, message):
                 await asyncio.sleep(3)
                 await msg1.delete()
                 msg2 = await message.channel.send("".join(cup))
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.5)
                 await msg2.delete()
                 msg1 = await message.channel.send("🪣🪣🪣🪣🪣")
                 Game.update({"cup_game": 1})
@@ -63,7 +64,8 @@ async def play_2(message):
         if contents.startswith("1"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
-            state["buckaloues"] += 2
+            state["buckaloues"] += 1
+            await message.channel.send("You received 1 buckaloue!")
             print(state["stats"].happy)
         elif contents.startswith("2" or "3" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -75,7 +77,8 @@ async def play_2(message):
         if contents.startswith("2"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
-            state["buckaloues"] += 2
+            state["buckaloues"] += 1
+            await message.channel.send("You received 1 buckaloue!")
             print(state["stats"].happy)
         elif contents.startswith("1" or "3" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -87,7 +90,8 @@ async def play_2(message):
         if contents.startswith("3"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
-            state["buckaloues"] += 2
+            state["buckaloues"] += 1
+            await message.channel.send("You received 1 buckaloue!")
             print(state["stats"].happy)
         elif contents.startswith("2" or "1" or "4" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -99,7 +103,8 @@ async def play_2(message):
         if contents.startswith("4"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
-            state["buckaloues"] += 2
+            state["buckaloues"] += 1
+            await message.channel.send("You received 1 buckaloue!")
             print(state["stats"].happy)
         elif contents.startswith("2" or "3" or "1" or "5"):
                 await message.channel.send("Uuuuuh. Better luck next time!")
@@ -111,7 +116,8 @@ async def play_2(message):
         if contents.startswith("5"):
             await message.channel.send("You found the mouse!")
             state["stats"].happy += 1
-            state["buckaloues"] += 2
+            state["buckaloues"] += 1
+            await message.channel.send("You received 1 buckaloue!")
             print(state["stats"].happy)
         elif contents.startswith("2" or "3" or "4" or "1"):
                 await message.channel.send("Uuuuuh. Better luck next time!")

@@ -76,6 +76,7 @@ async def feed(client, message):
     
     
     if reaction is not None: #and Feed["feeding"] == 1:
+        await feed_message.delete()
         if str(reaction.emoji) in list(fridge.keys()):
             if state["stats"].hungry > 2:
                 await message.channel.send("Your pet is full ❤️")
@@ -87,6 +88,7 @@ async def feed(client, message):
                 if state["stats"].clean < 0:
                     state["stats"].clean = 0
                 await message.channel.send("You fed your pet!!!")
+                await message.channel.send("You received 1 buckaloue!")
                 await Main.menu(message)
 
 
