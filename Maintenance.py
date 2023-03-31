@@ -69,3 +69,12 @@ helpMes = [
     "Keep an eye on your pets stats so that your pet doesn't get sick."
 
 ]
+
+Death = [
+    "Your pet has died of severe hunger",
+    "Your pet has been hit by a bus and died",
+    "Your pet has been exposed to direct UV rays and died",
+    "Your pet has been eaten by a chihuahua", 
+    "Your pet jumped into an oven and got cooked",
+    "Your pet fell down a tall building thinking it could fly"
+]
