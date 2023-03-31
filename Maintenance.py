@@ -50,12 +50,13 @@ helpMes = [
 
     "COMMANDS",
 
-    "The preifx is >",
+    "The prefix is >",
     "*>help* for explaining the game. ",
     "*>play* for playing mini games with your pet", 
     "*>feed* for feeding your pet",
     "*>shower* for cleaning your pet", 
-    ">shop* for shopping items for your pet",
+    "*>shop* for shopping items for your pet",
+    "*>menu* to return back to the menu screen"
 
     "REACTIONS",
 
