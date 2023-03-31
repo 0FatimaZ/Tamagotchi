@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import Maintenance 
+import Main
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -51,3 +52,5 @@ async def shop(client, message):
                 await message.channel.send("You bought a " + str(reaction.emoji) + "!")
             else:
                 await message.channel.send("You don't have enough buckaloues to buy this item :'(")
+        await Main.menu(message)
+        
