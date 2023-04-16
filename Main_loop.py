@@ -41,7 +41,7 @@ async def on_member_join():
 @client.event
 async def on_message(message):
     global run_game
-    contents = message.content
+    contents = message.content.lower()
 
     user = str(message.author.id)
 

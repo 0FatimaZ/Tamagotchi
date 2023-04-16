@@ -40,7 +40,7 @@ async def menu(message):
     cat = None
     happy_pic = discord.File(PATH + "CatHappy.png")
     happy_dirty_pic = discord.File(PATH + "DirtyHappyCat.png")
-    sad_pic = discord.File(PATH + "EmptyWallet.png") #skal ændres til korrekte path
+    sad_pic = discord.File(PATH + "SadCleanCat.jpeg") #skal ændres til korrekte path
     sad_dirty_pic = discord.File(PATH + "SadDirtyCat.png")
     if state["stats"].happy >= 2 and state["stats"].clean >= 2:
         cat = happy_pic
