@@ -9,16 +9,13 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def start(message):
-    contents = message.content
     user = str(message.author.id)
-
-    if contents.startswith(">start"):
-        if user in Maintenance.users:
-            await message.channel.send("Welcome!")
-        else:
-            Maintenance.users.update({user: Maintenance.new_stats()})
-            print(Maintenance.users)
-            await message.channel.send("Welcome to the game!")
+    if user in Maintenance.users:
+        await message.channel.send("Welcome!")
+    else:
+        Maintenance.users.update({user: Maintenance.new_stats()})
+        print(Maintenance.users)
+        await message.channel.send("Welcome to the game!")
     
 
 
