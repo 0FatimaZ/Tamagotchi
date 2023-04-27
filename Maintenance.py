@@ -56,7 +56,8 @@ helpMes = [
     "*>feed* for feeding your pet",
     "*>shower* for cleaning your pet", 
     "*>shop* for shopping items for your pet",
-    "*>menu* to return back to the menu screen"
+    "*>menu* to return back to the menu screen",
+    "*wallet* lets you check how many buckaloues you have"
 
     "REACTIONS",
 
