@@ -57,7 +57,7 @@ helpMes = [
     "*>shower* for cleaning your pet", 
     "*>shop* for shopping items for your pet",
     "*>menu* to return back to the menu screen",
-    "*wallet* lets you check how many buckaloues you have"
+    "*>wallet* lets you check how many buckaloues you have",
 
     "REACTIONS",
 
@@ -71,11 +71,3 @@ helpMes = [
 
 ]
 
-Death = [
-    "Your pet has died of severe hunger",
-    "Your pet has been hit by a bus and died",
-    "Your pet has been exposed to direct UV rays and died",
-    "Your pet has been eaten by a chihuahua", 
-    "Your pet jumped into an oven and got cooked",
-    "Your pet fell down a tall building thinking it could fly"
-]
