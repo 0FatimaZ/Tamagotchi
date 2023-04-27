@@ -14,6 +14,8 @@ async def quit(message):
     state["stage"] = 0
     with open('StateDict.p', 'wb') as fp:
         pickle.dump(Maintenance.users, fp, protocol=pickle.HIGHEST_PROTOCOL)
+        reply = "You've left the game.."
+        await message.channel.send(reply)
         return
     
     

@@ -48,11 +48,11 @@ async def on_message(message):
     if not (message.author.bot):
       if contents.startswith(">start"):
         await Start.start(message)
-      (fridge, state) = Maintenance.users[user]
-    
-    #while game == True:
-      if state["stage"] == 0: 
         await Main.menu(message)
+      (fridge, state) = Maintenance.users[user] 
+
+      if state["stage"] == 0: 
+        #await Main.menu(message)
         state["stage"] = 1
         state.update({"stage": 1})
             
@@ -85,11 +85,12 @@ async def on_message(message):
         elif contents.startswith(">menu"):
             await Main.menu(message)
 
-        elif contents.startswith(">quit"): #man får en key error
+        elif contents.startswith(">quit"): 
             state["stage"] = 0
             print(str(state["stage"]))
-            await Quit.quit(message) 
-            #break
+            await Quit.quit(message)
+            pass
+            
             
         
         else:

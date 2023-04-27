@@ -38,6 +38,8 @@ async def play(client, message):
             if str(reaction.emoji) == '🪣' and  Game["cup_game"] == 0:
                 reply = "Let's play the cup game."
                 await message.channel.send(reply)
+                reply = "For choosing the cup, write its order number"
+                await message.channel.send(reply)
                 random.shuffle(cup)
                 msg1 = await message.channel.send("🪣🪣🪣🪣🪣")
                 await asyncio.sleep(3)
