@@ -16,7 +16,11 @@ async def quit(message):
         pickle.dump(Maintenance.users, fp, protocol=pickle.HIGHEST_PROTOCOL)
         reply = "You've left the game.."
         await message.channel.send(reply)
-        return
+
+
+
+
+
     
     
         
