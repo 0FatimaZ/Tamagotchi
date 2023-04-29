@@ -69,6 +69,7 @@ async def on_message(message):
 
         elif contents.startswith(">feed"):
             await Feed.feed(client, message)
+            print(str(state["stats"].hungry))
 
         elif contents.startswith(">shower"):
             await Shower.shower(client, message)
