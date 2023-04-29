@@ -44,9 +44,20 @@ async def feed(client, message):
 
         reply = "What would you like to feed your pet?"
         feed_message = await message.channel.send(reply)
+
+        # Get a list of all the food items with a number greater than 0
+        food_items = [name for name, food in fridge.items() if food.number > 0]
+
+        # Add all the reactions at once using asyncio.gather
+        tasks = [feed_message.add_reaction(name) for name in food_items]
+        await asyncio.gather(*tasks)
+
+
+        """reply = "What would you like to feed your pet?"
+        feed_message = await message.channel.send(reply)
         for (name, food) in fridge.items():
             if food.number > 0:
-                await feed_message.add_reaction(name)
+                await feed_message.add_reaction(name)"""
 
         """
         reply = str(name) + ": " + str(food.number)
@@ -57,22 +68,23 @@ async def feed(client, message):
                 await message.channel.send(reply) """
         
 
-    
-    
     def check(reaction, user):
         return user == message.author and str(reaction.emoji) in list(fridge.keys())
-    
+    reaction = None
     try:
         reaction, user = await client.wait_for('reaction_add', timeout=10.0, check=check)
-    
-
     except asyncio.TimeoutError:
         try:
             await feed_message.delete()
         except discord.errors.NotFound:
             pass
-        reaction = None
-    
+
+    """except asyncio.TimeoutError:
+        try:
+            await feed_message.delete()
+        except discord.errors.NotFound:
+            pass
+        reaction = None"""
     
     
     if reaction is not None: #and Feed["feeding"] == 1:
