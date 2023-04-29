@@ -10,7 +10,6 @@ import Quit
 import Start
 import Shop
 import Main
-#import pickle
 
 
 intents = discord.Intents.default()
@@ -52,7 +51,6 @@ async def on_message(message):
       (fridge, state) = Maintenance.users[user] 
 
       if state["stage"] == 0: 
-        #await Main.menu(message)
         state["stage"] = 1
         state.update({"stage": 1})
             
@@ -92,57 +90,9 @@ async def on_message(message):
             await Quit.quit(message)
             pass
             
-            
-        
         else:
             pass
     
 
 token = get_token()
 client.run(token)
-
-
-  # user = message.author.id
-
-  # if not (message.author.bot):
-      
-    #     if user in Maintenance.users:
-
-    #       if contents.startswith(">start"):
-    #         if user in Maintenance.users:
-        
-    #             with open('StateDict.p', 'rb') as fp:
-    #                 state = pickle.load(fp)
-    #                 fridge = pickle.load(fp)
-    #                 Maintenance.users[user] = (fridge, state)
-    #         else:
-    #             Maintenance.users[user] = Maintenance.new_stats() 
-            
-    #         (userfridge, userstate) = Maintenance.users[user]
-    #         await message.channel.send("Welcome!")
-            
-
-    #       if userstate["stage"] == 2:
-          
-    #         if contents.startswith(">feed"):
-    #           await Feed.feed(client, message)
-
-    #         elif contents.startswith(">shower"):
-    #           await Shower.shower(client, message)
-
-    #         elif contents.startswith(">play"):
-    #           await Play.play(client, message)
-
-    #         elif contents.startswith(">help"):
-    #             reply = Maintenance.helpMes
-    #             for n in reply:
-    #                 await message.channel.send(n)
-    #                 await asyncio.sleep(2)
-
-    #         elif contents.startswith(">wallet"):
-    #           await Wallet.wallet(client, message)
-
-    #         elif contents.startswith(">shop"):
-    #           await Shop.shop(client, message)
-
-            

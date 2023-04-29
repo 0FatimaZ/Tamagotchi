@@ -7,11 +7,8 @@ from Maintenance import Health
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
-#bot = commands.Bot(command_prefix='!')
 
 PATH = "./Icons/"
-
-#pet = Health(hungry=0, clean=0, happy=0)
 
 @client.event
 async def menu(message):
@@ -56,3 +53,4 @@ async def menu(message):
     await message.channel.send(files=[happy_pics])
     await message.channel.send(files=[cat])
     await message.channel.send(file=discord.File(PATH + "FastMenu.png"))
+    await message.channel.send("Type '>wallet' to see how many buckaloues you have >w<")

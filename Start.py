@@ -16,7 +16,3 @@ async def start(message):
         Maintenance.users.update({user: Maintenance.new_stats()})
         print(Maintenance.users)
         await message.channel.send("Welcome to the game!")
-    
-
-
-    

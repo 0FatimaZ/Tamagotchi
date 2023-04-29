@@ -1,5 +1,4 @@
 #Classes
-
 class Health:
     def __init__(self, hungry, clean, happy):
         self.hungry = hungry
@@ -13,7 +12,6 @@ class Food:
         self.price = price
 
 #Dictionaries
-
 def new_stats():
     fridge = {
         "🍕": Food(2, 3),
@@ -23,7 +21,6 @@ def new_stats():
     }
 
     state = {
-        #"current_page": 0,
         "user": None,
         "stats": Health(0, 0, 0),
         "buckaloues": 10,
@@ -34,12 +31,8 @@ def new_stats():
 
 users = {}
 
-# (fridge, state) = Maintenance.users[user]   #at få fat i begge states
-# state["stage"] = 2 #opdatere stage
-# state["stats"].clean += 1  #opdatere stat
 
 #Lists
-
 helpMes = [
     "This game allows you to take care of your pet by playing, feeding and cleaning it", 
     
