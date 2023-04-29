@@ -28,7 +28,7 @@ async def shop(client, message):
         await shop_message.add_reaction("🍩")
         await shop_message.add_reaction("🍙")
 
-        await message.channel.send("When you have selected what you want to purchase, simply type '>buy' :3")
+        await message.channel.send("Select your items and then simply wait for the confimation message. Then you can confirm buy typing '>buy'.")
     
         # Collect reactions
         def check(reaction, user):
@@ -46,15 +46,15 @@ async def shop(client, message):
 
         # Check if any items were selected
         if len(selected_items) == 0:
-            await message.channel.send("You didn't select anything!")
+            await message.channel.send("You didn't select anything! :0")
             return
         
         # Confirm purchase
-        purchase_message = await message.channel.send("Are you sure you want to purchase " + ", ".join(selected_items) + "? Type '>buy' to confirm.")
+        purchase_message = await message.channel.send("Purchase " + ", ".join(selected_items) + "? Type '>buy' to confirm :3")
         try:
             confirm = await client.wait_for('message', timeout=10.0, check=lambda m: m.author == message.author and m.content == '>buy')
         except asyncio.TimeoutError:
-            await message.channel.send("Purchase cancelled.")
+            await message.channel.send("You didn't confirm! :0 Purchase cancelled.")
             return
 
         
@@ -72,6 +72,7 @@ async def shop(client, message):
         # Send confirmation message
         if total_price > 0:
             await message.channel.send("You bought " + ", ".join(selected_items) + " for " + str(total_price) + " buckaloues!")
+        await Main.menu(message)
 
         """def check(reaction, user):
             return user and str(reaction.emoji) in list(fridge.keys())
