@@ -28,7 +28,7 @@ async def shop(client, message):
         await shop_message.add_reaction("🍩")
         await shop_message.add_reaction("🍙")
 
-        await message.channel.send("Select your items and then simply wait for the confimation message. Then you can confirm buy typing '>buy'.")
+        await message.channel.send("Select your items and then simply wait for the confimation message. Then you can confirm by typing '>buy'.")
     
         # Collect reactions
         def check(reaction, user):
