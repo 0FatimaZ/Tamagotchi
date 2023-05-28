@@ -35,12 +35,14 @@ async def shower(client, message):
             pass
     
     else:
-        
         if str(reaction.emoji) == '🚿':
             await shower_message.delete()
+
+            # Unable to shower because pet has full stats
             if state["stats"].clean >= 2:
                 await message.channel.send("Your pet is already clean")
-            
+        
+           #Showering pet 
             elif state["stats"].clean < 2:
                 reply = "Let's clean your pet" + '⏳'
                 await message.channel.send(reply)
@@ -48,6 +50,7 @@ async def shower(client, message):
                 await asyncio.sleep(3) 
                 reply = "Your pet is now clean" + '⌛' + "you recieved 1 buckaloue! :3"
                 await message.channel.send(reply)
+            #Updating corresponding variables
                 state["buckaloues"] += 1
                 print(state["buckaloues"])
                 state["stats"].clean += 2
@@ -56,6 +59,7 @@ async def shower(client, message):
                     state["stats"].happy = 0
                 print(str(state["stats"].clean))
             
+            #showering pet 
             elif state["stats"].clean == 0:
                 reply = "Your pet could really use a shower..." + '⏳'
                 await message.channel.send(reply)
@@ -68,6 +72,3 @@ async def shower(client, message):
             
             await Main.menu(message)
                 
-                
-
-
